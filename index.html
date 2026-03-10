@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #800020;    /* Bordeaux */
-            --primary-dark: #4A0E0E;
+            --primary: #A3B18A;    /* Vert sauge A3B18A */
+            --primary-dark: #5B674B;
             --secondary: #D2BF81;  /* Or/Jaune */
             --card: #FCF9F2;       /* Ivoire */
             --text: #2c2c2c;
@@ -21,13 +21,12 @@
             background: var(--primary);
             color: var(--text);
             line-height: 1.6;
-            /* Empêche le rebond horizontal global */
             overflow-x: hidden; 
         }
 
         header {
             background: var(--card);
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
             text-align: center;
             border-bottom: 3px solid var(--primary);
         }
@@ -36,14 +35,13 @@
             font-family: 'Dancing Script', cursive;
             font-size: 3rem;
             margin: 0;
-            color: var(--primary);
         }
 
         /* --- CORRECTION NAVIGATION --- */
         nav {
             position: sticky;
             top: 0;
-            background: white;
+            background: #FEFDFB;
             display: flex;
             overflow-x: hidden; 
             width: 100%;
@@ -54,7 +52,7 @@
 		nav a {
             padding: 1rem 0.2rem; 
             text-decoration: none;
-            color: var(--primary);
+            color: var(--primary-dark);
             font-size: 0.75rem; 
             font-weight: bold;
             flex: 1;
@@ -67,7 +65,6 @@
             transition: background 0.3s, color 0.3s; /* Transition douce */
         }
 
-        /* L'onglet actif */
         nav a.active {
             background: var(--primary);
             color: var(--card);
@@ -84,7 +81,6 @@
             background: white;
             padding: 1.5rem;
             border-radius: 20px;
-            margin-bottom: 1rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         
@@ -122,7 +118,7 @@
         }
         
         button { 
-            background: var(--primary); 
+            background: var(--primary-dark); 
             color: white; 
             border: none; 
             font-weight: bold; 
@@ -139,21 +135,30 @@
             margin-top: 20px;
         }
         
+        /* Style de base pour les entrées */
         .entry { 
             padding: 10px 0; 
             border-bottom: 1px solid #eee; 
             font-size: 0.95rem;
+            color: var(--text); /* Couleur par défaut pour le texte ":" et "Oui" */
         }
-        .entry:last-child { border: none; }
-        .entry-name { font-weight: bold; color: var(--primary); }
-		
-		.entry.absent {
-            color: #999; /* Gris clair */
+
+        /* État : PRÉSENT (Couleur identique aux chansons) */
+        .entry.present .entry-name, 
+        .music-entry-title { 
+            font-weight: bold; 
+            color: #3A4D39; /* Ton vert foncé chic */
+        }
+
+        /* État : ABSENT (Grisé) */
+        .entry.absent {
+            color: #999; 
             opacity: 0.8;
         }
         
         .entry.absent .entry-name {
-            color: #999; /* On grise aussi le nom pour les absents */
+            color: #999;
+            font-weight: bold;
         }
 
         /* Style spécifique pour les listes à puces */
@@ -183,6 +188,30 @@
             left: 10px;
             top: -2px;
         }
+		
+		/* Style pour les sous-listes */
+        .sub-list {
+            list-style: none;
+            padding-left: 20px; /* Décalage vers la droite */
+            margin-top: 8px;    /* Espace avec le texte parent */
+        }
+
+        .sub-list li {
+            font-size: 0.85rem; /* Légèrement plus petit pour la hiérarchie */
+            margin-bottom: 6px;
+            color: #555;        /* Un gris plus doux */
+            position: relative;
+            padding-left: 20px;
+        }
+
+        /* Une puce différente pour les sous-points (un petit tiret ou losange) */
+        .sub-list li::before {
+            content: "–"; 
+            color: var(--secondary); /* Ton Or/Jaune pour varier du vert */
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
 
         footer {
             text-align: center;
@@ -196,25 +225,27 @@
         @media (max-width: 360px) {
             nav a { font-size: 0.7rem; }
         }
+		
     </style>
 </head>
 <body>
 
 <header>
-    <h1><a href="#" id="homeLink" style="text-decoration: none; color: inherit;">Hanaleï & Adil</a></h1>
-    <p><strong>[Site à partager début Avril à tous les invités]</strong><br> <br>25 Juillet 2026</p>
+    <h1><a href="#" id="homeLink" style="text-decoration: none; color: var(--primary-dark)">Hanaleï & Adil</a></h1>
+    <p><strong>[Site à partager début Avril à tous les invités]</strong><br>25 Juillet 2026</p>
 </header>
 
 <nav>
     <a href="#invites">RSVP</a>
-    <a href="#infos">Infos</a>
     <a href="#programme">Programme</a>
     <a href="#playlist">Musique</a>
+	<a href="#infos">Infos</a>
 </nav>
 
 <section id="invites" class="section">
     <h2>Confirmer votre présence</h2>
     <div class="card">
+	  <p style="font-style: italic; font-size: 0.8rem;">Votre réponse sera visible par tout le monde</p>
         <form id="rsvpForm">
             <label>Prénom(s)</label>
             <input type="text" id="rsvpNom" placeholder="Ex: Adil & Hanaleï" required>
@@ -233,29 +264,17 @@
     </div>
 </section>
 
-<section id="infos" class="section">
-    <h2>Informations pratiques</h2>
-    <div class="card">
-        <ul class="info-list">
-            <li>Gares de train les plus proches : Agen, Auch</li>
-            <li>Aéroports les plus proches : Toulouse-Blagnac, Bordeaux-Mérignac</li>
-            <li>Trajet Larressingle → Moncrabeau : 20 minutes en voiture</li>
-            <li>Pas de dress code, mais les couleurs sont les bienvenues !</li>
-			<li>Villes les plus proches avec Hôtels et Airbnb : Condom, Nérac, Agen</li>
-			<li>Parkings disponibles à la Mairie et à la Palombière d'Henri</li>
-        </ul>
-    </div>
-</section>
-
 <section id="programme" class="section">
     <h2>Le Programme</h2>
     <div class="card">
-        <p>🏫 <strong>Samedi 15h30 :</strong> Arrivée des invités à la mairie <span class="note">(Hôtel de Ville - Larressingle)</span></p>
-		<p>💍 <strong>16h :</strong> Cérémonie Civile</p>
-        <p>🌿 <strong>17h30 :</strong> Cérémonie Laïque <span class="note">(Palombière d'Henri - Moncrabeau)</span></p>
-        <p>🥂 <strong>18h30 :</strong> Vin d'honneur</p>
+	    <p><span class="note">Hôtel de Ville - Larressingle 📍</span></p>
+        <p>🏫 <strong>15h30 - 15h45 :</strong> Arrivée à la mairie</p>
+		<p>💍 <strong>16h00 :</strong> Cérémonie Civile</p>
+		<p><span class="note">Palombière d'Henri - Moncrabeau 📍</span></p>
+        <p>🌿 <strong>17h30 :</strong> Cérémonie Laïque</p>
+        <p>🍾 <strong>18h30 :</strong> Vin d'honneur</p>
         <p>💃 <strong>20h30 :</strong> Dîner suivi de la Soirée</p>
-		<p>🥐 <strong>Dimanche 11h :</strong> Brunch convivial et sans obligation</p>
+		<p>🥐 <strong>Dimanche 11h :</strong> Brunch convivial et sans obligation à la Palombière d'Henri</p>
     </div>
 </section>
 
@@ -275,6 +294,28 @@
         
         <h3>Vos suggestions</h3>
         <div id="musicList" class="list-container">Chargement des musiques...</div>
+    </div>
+</section>
+
+<section id="infos" class="section">
+    <h2>Informations pratiques</h2>
+    <div class="card">
+        <ul class="info-list">
+            <li><strong>Gares de train</strong> les plus proches : Agen, Auch</li>
+            <li><strong>Aéroports</strong> les plus proches : Toulouse-Blagnac, Bordeaux-Mérignac</li>
+            <li>Trajet <strong>Larressingle → Moncrabeau</strong> : 20 minutes en voiture</li>
+			<li>Pas de dress code, mais les <strong>couleurs</strong> sont les bienvenues !</li>
+			<li>Villes les plus proches avec <strong>Hôtels et Airbnb</strong> : Condom, Nérac, Agen</li>
+			<li><strong>Parkings disponibles</strong> à la Mairie et à la Palombière d'Henri</li>
+			<li>Si vous souhaitez visiter le Gers :
+              <ul class="sub-list">
+                <li>Abbaye de Flaran</li>
+                <li>Château de Larressingle</li>
+                <li>Lac de l'Uby</li>
+				<li>Villages typiques : Marciac, Bassoues, Eauze, La Romieu, Lavardens, Montréal-du-Gers, Lectoure, Sarrant</li>
+              </ul>
+            </li>
+        </ul>
     </div>
 </section>
 
@@ -326,11 +367,9 @@
         
         snapshot.forEach((child) => {
             const val = child.val();
-            
-            // On vérifie si la présence contient le mot "Absent"
             const isAbsent = val.presence.includes("Absent");
-            // On ajoute la classe "absent" si c'est le cas
-            const entryClass = isAbsent ? "entry absent" : "entry";
+            // Si absent -> class "absent", sinon -> class "present"
+            const entryClass = isAbsent ? "entry absent" : "entry present";
 
             rsvpListDiv.innerHTML += `
                 <div class="${entryClass}">
@@ -362,12 +401,11 @@
         if (!snapshot.exists()) { musicListDiv.innerHTML = "Proposez le premier morceau !"; return; }
         snapshot.forEach((child) => {
             const val = child.val();
-            // N'affiche (par Nom) que si le champ "invite" n'est pas vide
             const suggestionPar = val.invite ? ` <small>(par ${val.invite})</small>` : '';
             
             musicListDiv.innerHTML += `
                 <div class="entry">
-                    🎵 <strong>${val.titre}</strong>${suggestionPar}
+                    🎵 <span class="music-entry-title">${val.titre}</span>${suggestionPar}
                 </div>`;
         });
     });
