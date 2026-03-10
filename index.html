@@ -21,13 +21,15 @@
             background: var(--primary);
             color: var(--text);
             line-height: 1.6;
+            /* Empêche le rebond horizontal global */
+            overflow-x: hidden; 
         }
 
         header {
             background: var(--card);
             padding: 3rem 1rem;
             text-align: center;
-            border-bottom: 3px solid var(--secondary);
+            border-bottom: 3px solid var(--primary);
         }
 
         h1 {
@@ -37,48 +39,60 @@
             color: var(--primary);
         }
 
+        /* --- CORRECTION NAVIGATION --- */
         nav {
             position: sticky;
             top: 0;
             background: white;
             display: flex;
-            overflow-x: auto;
-            white-space: nowrap;
+            overflow-x: hidden; 
+            width: 100%;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             z-index: 1000;
         }
-
-        nav a {
-            padding: 1.2rem;
+		
+		nav a {
+            padding: 1rem 0.2rem; 
             text-decoration: none;
             color: var(--primary);
-            font-size: 0.85rem;
+            font-size: 0.75rem; 
             font-weight: bold;
             flex: 1;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, color 0.3s; /* Transition douce */
+        }
+
+        /* L'onglet actif */
+        nav a.active {
+            background: var(--primary);
+            color: var(--card);
         }
 
         .section {
-            padding: 2.5rem 1.5rem;
+            padding: 1.5rem 1.5rem;
             max-width: 700px;
             margin: auto;
+            box-sizing: border-box;
         }
 
         .card {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 20px;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
-		
-		.note {
+        
+        .note {
           font-size: 13px;
           color: #555;
-		  font-style: italic;
-	    }
+          font-style: italic;
+        }
 
         h2 {
             color: white;
@@ -104,6 +118,7 @@
             border: 1px solid #ddd; 
             box-sizing: border-box; 
             font-family: 'Montserrat', sans-serif;
+            font-size: 16px; 
         }
         
         button { 
@@ -113,17 +128,15 @@
             font-weight: bold; 
             cursor: pointer; 
             transition: 0.3s;
-            font-size: 1rem;
         }
         button:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
         .list-container { 
-            max-height: 250px; 
-            overflow-y: auto; 
-            background: #fdfdfd; 
-            padding: 15px; 
-            border-radius: 10px; 
-            border: 1px inset #eee;
+            max-height: 400px; 
+            overflow-y: visible; /* On laisse la liste s'étaler */
+            background: transparent; 
+            padding: 0;
+            margin-top: 20px;
         }
         
         .entry { 
@@ -133,6 +146,43 @@
         }
         .entry:last-child { border: none; }
         .entry-name { font-weight: bold; color: var(--primary); }
+		
+		.entry.absent {
+            color: #999; /* Gris clair */
+            opacity: 0.8;
+        }
+        
+        .entry.absent .entry-name {
+            color: #999; /* On grise aussi le nom pour les absents */
+        }
+
+        /* Style spécifique pour les listes à puces */
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-list li {
+            position: relative;
+            padding-left: 25px; /* Espace pour la puce */
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        /* Création d'une puce personnalisée élégante */
+        .info-list li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 10px;
+            top: -2px;
+        }
 
         footer {
             text-align: center;
@@ -141,42 +191,26 @@
             font-size: 0.9rem;
         }
         footer a { color: var(--secondary); text-decoration: none; }
+
+        /* Media query pour les très petits écrans */
+        @media (max-width: 360px) {
+            nav a { font-size: 0.7rem; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Hanaleï & Adil</h1>
-    <p>Le 25 Juillet 2026</p>
+    <h1><a href="#" id="homeLink" style="text-decoration: none; color: inherit;">Hanaleï & Adil</a></h1>
+    <p><strong>[Site à partager début Avril à tous les invités]</strong><br> <br>25 Juillet 2026</p>
 </header>
 
 <nav>
-    <a href="#programme">Programme</a>
-    <a href="#infos">Infos</a>
     <a href="#invites">RSVP</a>
+    <a href="#infos">Infos</a>
+    <a href="#programme">Programme</a>
     <a href="#playlist">Musique</a>
 </nav>
-
-<section id="programme" class="section">
-    <h2>Le Programme</h2>
-    <div class="card">
-        <p>💍 <strong>16h00 :</strong> Cérémonie Civile <span class="note">(Mairie de Larressingle)</span></p>
-        <p>🌿 <strong>17h45 :</strong> Cérémonie Laïque <span class="note">(Palombière d'Henri - Moncrabeau)</span></p>
-        <p>🥂 <strong>18h30 :</strong> Vin d'honneur</p>
-        <p>💃 <strong>20h30 :</strong> Dîner suivi de la Soirée</p>
-    </div>
-</section>
-
-<section id="infos" class="section">
-    <h2>Informations pratiques</h2>
-    <div class="card">
-        <p>Gares de train les plus proches : Agen, Auch</p>
-		<p>Aéroports les plus proches : Toulouse, Bordeaux</p>
-		<p>Trajet Larressingle → Moncrabeau : 20 minutes en voiture</p>
-		<p>Dress code : venez comme vous voulez, les couleurs sont les bienvenues !</p>
-		<p>Canicule : de l'eau et des éventails seront à disposition toute la journée</p>
-    </div>
-</section>
 
 <section id="invites" class="section">
     <h2>Confirmer votre présence</h2>
@@ -187,8 +221,8 @@
             
             <label>Serez-vous parmi nous ?</label>
             <select id="rsvpPresence">
-                <option value="Présent ✨">Oui, avec grand plaisir !</option>
-                <option value="Absent 😔">Malheureusement non</option>
+                <option value="Confirmé ✨">Oui !</option>
+                <option value="Absent">Non 😔</option>
             </select>
             
             <button type="submit">Envoyer ma réponse</button>
@@ -196,6 +230,32 @@
         
         <h3>Liste des réponses</h3>
         <div id="rsvpList" class="list-container">Chargement des réponses...</div>
+    </div>
+</section>
+
+<section id="infos" class="section">
+    <h2>Informations pratiques</h2>
+    <div class="card">
+        <ul class="info-list">
+            <li>Gares de train les plus proches : Agen, Auch</li>
+            <li>Aéroports les plus proches : Toulouse-Blagnac, Bordeaux-Mérignac</li>
+            <li>Trajet Larressingle → Moncrabeau : 20 minutes en voiture</li>
+            <li>Pas de dress code, mais les couleurs sont les bienvenues !</li>
+			<li>Villes les plus proches avec Hôtels et Airbnb : Condom, Nérac, Agen</li>
+			<li>Parkings disponibles à la Mairie et à la Palombière d'Henri</li>
+        </ul>
+    </div>
+</section>
+
+<section id="programme" class="section">
+    <h2>Le Programme</h2>
+    <div class="card">
+        <p>🏫 <strong>Samedi 15h30 :</strong> Arrivée des invités à la mairie <span class="note">(Hôtel de Ville - Larressingle)</span></p>
+		<p>💍 <strong>16h :</strong> Cérémonie Civile</p>
+        <p>🌿 <strong>17h30 :</strong> Cérémonie Laïque <span class="note">(Palombière d'Henri - Moncrabeau)</span></p>
+        <p>🥂 <strong>18h30 :</strong> Vin d'honneur</p>
+        <p>💃 <strong>20h30 :</strong> Dîner suivi de la Soirée</p>
+		<p>🥐 <strong>Dimanche 11h :</strong> Brunch convivial et sans obligation</p>
     </div>
 </section>
 
@@ -219,7 +279,7 @@
 </section>
 
 <footer>
-    <p>Fait avec ❤️ pour notre mariage</p>
+    <p>Merci pour vos réponses ❤️</p>
     <p>Contact Hanaleï : 06 12 92 50 22<br>Contact Adil : 06 15 82 41 22</p>
 </footer>
 
@@ -263,10 +323,17 @@
     onValue(ref(db, 'rsvp'), (snapshot) => {
         rsvpListDiv.innerHTML = '';
         if (!snapshot.exists()) { rsvpListDiv.innerHTML = "Aucune réponse pour le moment."; return; }
+        
         snapshot.forEach((child) => {
             const val = child.val();
+            
+            // On vérifie si la présence contient le mot "Absent"
+            const isAbsent = val.presence.includes("Absent");
+            // On ajoute la classe "absent" si c'est le cas
+            const entryClass = isAbsent ? "entry absent" : "entry";
+
             rsvpListDiv.innerHTML += `
-                <div class="entry">
+                <div class="${entryClass}">
                     <span class="entry-name">${val.nom}</span> : ${val.presence}
                 </div>`;
         });
@@ -303,6 +370,27 @@
                     🎵 <strong>${val.titre}</strong>${suggestionPar}
                 </div>`;
         });
+    });
+	
+	// --- GESTION DES ONGLETS ACTIFS ---
+    const navLinks = document.querySelectorAll('nav a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // 1. On retire la classe active de tous les liens
+            navLinks.forEach(l => l.classList.remove('active'));
+            // 2. On l'ajoute uniquement sur celui qui a été cliqué
+            this.classList.add('active');
+        });
+    });
+	
+	// --- RETOUR EN HAUT VIA LE TITRE ---
+    const homeLink = document.getElementById('homeLink');
+    
+    homeLink.addEventListener('click', (e) => {
+        // On laisse le comportement par défaut (remonter en haut via href="#")
+        // Mais on retire la classe active de TOUS les onglets du menu
+        navLinks.forEach(link => link.classList.remove('active'));
     });
 </script>
 
