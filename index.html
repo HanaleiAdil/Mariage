@@ -126,6 +126,12 @@
             transition: 0.3s;
         }
         button:hover { background: var(--primary-dark); transform: translateY(-2px); }
+		
+		/* Pour éclaircir le texte d'exemple dans les champs */
+        input::placeholder {
+          color: #ccc; /* Ce gris est beaucoup plus clair et doux */
+          opacity: 1;  /* Nécessaire pour Firefox */
+        }
 
         .list-container { 
             max-height: 400px; 
@@ -255,22 +261,21 @@
 <section id="invites" class="section">
     <h2>Confirmez votre présence</h2>
     <div class="card">
-	  <p style="font-style: italic; font-size: 0.7rem;">Votre réponse sera visible par tout le monde</p>
-        <form id="rsvpForm">
-            <label>Prénom(s)</label>
-            <input type="text" id="rsvpNom" placeholder="Ex: Adil & Hanaleï" required>
-            
-            <label>Serez-vous parmi nous ?</label>
-            <select id="rsvpPresence">
-                <option value="Confirmé ✨">Oui !</option>
-                <option value="Absent">Non 😔</option>
-            </select>
-            
-            <button type="submit">Envoyer ma réponse</button>
+        <form id="rsvpForm" style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <input type="text" id="rsvpNom" placeholder="Prénom(s)" required style="flex: 2; margin: 0;">
+                <select id="rsvpPresence" style="flex: 1; margin: 0; min-width: 120px;">
+                    <option value="Confirmé ✨">Oui !</option>
+                    <option value="Absent">Non 😔</option>
+                </select>
+            </div>
+            <button type="submit" style="margin: 5px 0 0 0; padding: 10px;">Envoyer ma réponse</button>
+            <p style="font-style: italic; font-size: 0.7rem; text-align: center; color: #888; margin: 0;">
+                Votre réponse sera visible publiquement ci-dessous
+            </p>
         </form>
-        
-        <h3>Liste des réponses</h3>
-        <div id="rsvpList" class="list-container">Chargement des réponses...</div>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0 15px 0;">
+        <div id="rsvpList" class="list-container" style="font-size: 0.85rem;">Chargement des réponses...</div>
     </div>
 </section>
 
@@ -295,19 +300,14 @@
 <section id="playlist" class="section">
     <h2>La Playlist</h2>
     <div class="card">
-        <p>Ajoutez le titre qui vous fera danser !</p>
-        <form id="musicForm">
-            <label>Artiste & Titre</label>
-            <input type="text" id="musicTitle" placeholder="Ex: Dua Lipa - Levitating" required>
-            
-            <label>Suggéré par (optionnel)</label>
-            <input type="text" id="musicUser" placeholder="Votre nom">
-            
-            <button type="submit">Ajouter à la playlist</button>
+        <p style="text-align: center; font-size: 0.9rem; margin-bottom: 15px;">Ajoutez le titre qui vous fera danser ! 💃</p>
+        <form id="musicForm" style="display: flex; flex-direction: column; gap: 10px;">
+          <input type="text" id="musicTitle" placeholder="Artiste & Titre (ex: Dua Lipa - Levitating)" required style="margin: 0;">
+          <button type="submit" style="margin: 5px 0 0 0; padding: 10px;">Ajouter à la playlist</button>
         </form>
-        
-        <h3>Vos suggestions</h3>
-        <div id="musicList" class="list-container">Chargement des musiques...</div>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0 15px 0;">
+        <h3 style="font-size: 1rem; text-align: center; border: none; margin-bottom: 5px;">Vos suggestions :</h3>
+        <div id="musicList" class="list-container" style="font-size: 0.85rem;">Chargement des musiques...</div>
     </div>
 </section>
 
@@ -329,7 +329,7 @@
 				<li>Villages typiques : Marciac, Bassoues, Eauze, La Romieu, Lavardens, Montréal-du-Gers, Lectoure, Sarrant</li>
               </ul>
             </li>
-			<li>Pas de dress code, mais les <strong>couleurs</strong> sont les bienvenues !</li>
+			<li>Pas de dress code, mais les <strong>tenues colorées</strong> sont les bienvenues !</li>
 			<li>Une cagnotte pour notre voyage de noce sera ouverte en Juillet</li>
         </ul>
     </div>
@@ -402,7 +402,6 @@
         e.preventDefault();
         const data = {
             titre: document.getElementById('musicTitle').value,
-            invite: document.getElementById('musicUser').value // Sera vide si non rempli
         };
         try {
             await push(ref(db, 'musique'), data);
@@ -417,11 +416,10 @@
         if (!snapshot.exists()) { musicListDiv.innerHTML = "Proposez le premier morceau !"; return; }
         snapshot.forEach((child) => {
             const val = child.val();
-            const suggestionPar = val.invite ? ` <small>(par ${val.invite})</small>` : '';
-            
+            // On n'affiche plus que le titre avec l'émoji
             musicListDiv.innerHTML += `
                 <div class="entry">
-                    🎵 <span class="music-entry-title">${val.titre}</span>${suggestionPar}
+                    🎵 <span class="music-entry-title">${val.titre}</span>
                 </div>`;
         });
     });
