@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Mariage - Hanaleï & Adil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #800020;    /* Bordeaux */
+            --primary-dark: #4A0E0E;
+            --secondary: #D2BF81;  /* Or/Jaune */
+            --card: #FCF9F2;       /* Ivoire */
+            --text: #2c2c2c;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--card);
+            padding: 3rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin: 0;
+            color: var(--primary);
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        nav a {
+            padding: 1.2rem;
+            text-decoration: none;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: bold;
+            flex: 1;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section {
+            padding: 2.5rem 1.5rem;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+		
+		.note {
+          font-size: 13px;
+          color: #555;
+		  font-style: italic;
+	    }
+
+        h2 {
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--primary);
+            border-bottom: 1px solid var(--secondary);
+            padding-bottom: 10px;
+        }
+
+        /* Formulaires */
+        label { display: block; margin-top: 10px; font-weight: bold; font-size: 0.9rem; }
+        input, select, button { 
+            width: 100%; 
+            padding: 12px; 
+            margin: 8px 0 15px 0; 
+            border-radius: 8px; 
+            border: 1px solid #ddd; 
+            box-sizing: border-box; 
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        button { 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            font-weight: bold; 
+            cursor: pointer; 
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+        button:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+        .list-container { 
+            max-height: 250px; 
+            overflow-y: auto; 
+            background: #fdfdfd; 
+            padding: 15px; 
+            border-radius: 10px; 
+            border: 1px inset #eee;
+        }
+        
+        .entry { 
+            padding: 10px 0; 
+            border-bottom: 1px solid #eee; 
+            font-size: 0.95rem;
+        }
+        .entry:last-child { border: none; }
+        .entry-name { font-weight: bold; color: var(--primary); }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--card);
+            font-size: 0.9rem;
+        }
+        footer a { color: var(--secondary); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Hanaleï & Adil</h1>
+    <p>Le 25 Juillet 2026</p>
+</header>
+
+<nav>
+    <a href="#programme">Programme</a>
+    <a href="#infos">Infos</a>
+    <a href="#invites">RSVP</a>
+    <a href="#playlist">Musique</a>
+</nav>
+
+<section id="programme" class="section">
+    <h2>Le Programme</h2>
+    <div class="card">
+        <p>💍 <strong>16h00 :</strong> Cérémonie Civile <span class="note">(Mairie de Larressingle)</span></p>
+        <p>🌿 <strong>17h45 :</strong> Cérémonie Laïque <span class="note">(Palombière d'Henri - Moncrabeau)</span></p>
+        <p>🥂 <strong>18h30 :</strong> Vin d'honneur</p>
+        <p>💃 <strong>20h30 :</strong> Dîner suivi de la Soirée</p>
+    </div>
+</section>
+
+<section id="infos" class="section">
+    <h2>Informations pratiques</h2>
+    <div class="card">
+        <p>Gares de train les plus proches : Agen, Auch</p>
+		<p>Aéroports les plus proches : Toulouse, Bordeaux</p>
+		<p>Trajet Larressingle → Moncrabeau : 20 minutes en voiture</p>
+		<p>Dress code : venez comme vous voulez, les couleurs sont les bienvenues !</p>
+		<p>Canicule : de l'eau et des éventails seront à disposition toute la journée</p>
+    </div>
+</section>
+
+<section id="invites" class="section">
+    <h2>Confirmer votre présence</h2>
+    <div class="card">
+        <form id="rsvpForm">
+            <label>Prénom(s)</label>
+            <input type="text" id="rsvpNom" placeholder="Ex: Adil & Hanaleï" required>
+            
+            <label>Serez-vous parmi nous ?</label>
+            <select id="rsvpPresence">
+                <option value="Présent ✨">Oui, avec grand plaisir !</option>
+                <option value="Absent 😔">Malheureusement non</option>
+            </select>
+            
+            <button type="submit">Envoyer ma réponse</button>
+        </form>
+        
+        <h3>Liste des réponses</h3>
+        <div id="rsvpList" class="list-container">Chargement des réponses...</div>
+    </div>
+</section>
+
+<section id="playlist" class="section">
+    <h2>La Playlist Collaborative</h2>
+    <div class="card">
+        <p>Ajoutez les titres qui vous feront danser toute la nuit !</p>
+        <form id="musicForm">
+            <label>Artiste & Titre</label>
+            <input type="text" id="musicTitle" placeholder="Ex: Dua Lipa - Levitating" required>
+            
+            <label>Suggéré par (optionnel)</label>
+            <input type="text" id="musicUser" placeholder="Votre nom">
+            
+            <button type="submit">Ajouter à la playlist</button>
+        </form>
+        
+        <h3>Vos suggestions</h3>
+        <div id="musicList" class="list-container">Chargement des musiques...</div>
+    </div>
+</section>
+
+<footer>
+    <p>Fait avec ❤️ pour notre mariage</p>
+    <p>Contact Hanaleï : 06 12 92 50 22<br>Contact Adil : 06 15 82 41 22</p>
+</footer>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAJoAI9wBPbCAgF7wiOZKhS4z2rIvpUTFY",
+        authDomain: "budget-mariage-d42dd.firebaseapp.com",
+        databaseURL: "https://budget-mariage-d42dd-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "budget-mariage-d42dd",
+        storageBucket: "budget-mariage-d42dd.firebasestorage.app",
+        messagingSenderId: "462100456581",
+        appId: "1:462100456581:web:db61911fe3d792b703b5ec"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // --- GESTION RSVP ---
+    const rsvpForm = document.getElementById('rsvpForm');
+    const rsvpListDiv = document.getElementById('rsvpList');
+
+    rsvpForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = {
+            nom: document.getElementById('rsvpNom').value,
+            presence: document.getElementById('rsvpPresence').value,
+            timestamp: new Date().toISOString()
+        };
+        try {
+            await push(ref(db, 'rsvp'), data);
+            rsvpForm.reset();
+            alert("Merci ! Votre réponse a été prise en compte.");
+        } catch (e) {
+            alert("Erreur : Impossible d'envoyer.");
+        }
+    });
+
+    onValue(ref(db, 'rsvp'), (snapshot) => {
+        rsvpListDiv.innerHTML = '';
+        if (!snapshot.exists()) { rsvpListDiv.innerHTML = "Aucune réponse pour le moment."; return; }
+        snapshot.forEach((child) => {
+            const val = child.val();
+            rsvpListDiv.innerHTML += `
+                <div class="entry">
+                    <span class="entry-name">${val.nom}</span> : ${val.presence}
+                </div>`;
+        });
+    });
+
+    // --- GESTION MUSIQUE ---
+    const musicForm = document.getElementById('musicForm');
+    const musicListDiv = document.getElementById('musicList');
+
+    musicForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = {
+            titre: document.getElementById('musicTitle').value,
+            invite: document.getElementById('musicUser').value // Sera vide si non rempli
+        };
+        try {
+            await push(ref(db, 'musique'), data);
+            musicForm.reset();
+        } catch (e) {
+            alert("Erreur lors de l'envoi.");
+        }
+    });
+
+    onValue(ref(db, 'musique'), (snapshot) => {
+        musicListDiv.innerHTML = '';
+        if (!snapshot.exists()) { musicListDiv.innerHTML = "Proposez le premier morceau !"; return; }
+        snapshot.forEach((child) => {
+            const val = child.val();
+            // N'affiche (par Nom) que si le champ "invite" n'est pas vide
+            const suggestionPar = val.invite ? ` <small>(par ${val.invite})</small>` : '';
+            
+            musicListDiv.innerHTML += `
+                <div class="entry">
+                    🎵 <strong>${val.titre}</strong>${suggestionPar}
+                </div>`;
+        });
+    });
+</script>
+
+</body>
+</html>
