@@ -271,26 +271,26 @@
         }
 		
 		/* Animation de victoire pour le bouton */
-@keyframes victory-bounce {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); background-color: var(--secondary); }
-    100% { transform: scale(1); }
-}
+		@keyframes victory-bounce {
+    		0% { transform: scale(1); }
+    		50% { transform: scale(1.05); background-color: var(--secondary); }
+    		100% { transform: scale(1); }
+		}
 
-.correct-anim {
-    animation: victory-bounce 0.5s ease;
-    background-color: #A3B18A !important; /* Vert succès doux */
-    color: white;
-}
+		.correct-anim {
+   		 animation: victory-bounce 0.5s ease;
+   		 background-color: #A3B18A !important; /* Vert succès doux */
+   		 color: white;
+		}
 
-.wrong-anim {
-    background-color: #e07a5f !important; /* Rouge terra cotta doux */
-    color: white;
-}
+		.wrong-anim {
+    		background-color: #e07a5f !important; /* Rouge terra cotta doux */
+    		color: white;
+		}
 
-#quiz-options button {
-    transition: all 0.3s ease;
-}
+		#quiz-options button {
+    		transition: all 0.3s ease;
+		}
 
         footer {
             text-align: center;
@@ -359,14 +359,11 @@
   <div class="container">
     <h2>Le Programme</h2>
 		<p><span class="note">📍 Hôtel de Ville - Larressingle</span></p>
-		<div style="margin-top: 25px; text-align: center;">
-          <img src="https://www.domainedesaussignac.com/wp-content/uploads/2014/07/larressingle-arriv%C3%A9e.jpg" alt="Photo Mariage" style="width: 300px; height: 150px; object-fit: cover; object-position: top; border-radius: 15px;">
-        </div>
-        <p><strong>15h30 - 15h45 :</strong> Arrivée à la mairie</p>
-		<p><strong>16h : </strong>Cérémonie Civile</p>
-		<p><strong>17h : </strong>Convoi vers Moncrabeau (20 minutes en voiture)</p>
+        <p><strong><span style="font-size: 1.1rem;">15h30 - 15h45 :</span></strong> Arrivée à la mairie</p>
+		<p><strong><span style="font-size: 1.1rem;">16h : </span></strong>Cérémonie Civile</p>
+		<p><strong><span style="font-size: 1.1rem;">17h : </span></strong>Convoi vers Moncrabeau (20 min 🚘)</p>
 		<div style="text-align: center; margin: 15px 0;">
-  		  <svg width="90" height="112" viewBox="0 0 120 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  		  <svg width="80" height="80" viewBox="0 0 120 150" fill="none" xmlns="http://www.w3.org/2000/svg">
     		<path 
       		d="M60 10 
          		C 60 10, 100 10, 100 50 
@@ -389,14 +386,10 @@
   		  </svg>
 		</div>
 		<p><span class="note">📍 Palombière d'Henri - Moncrabeau</span></p>
-		<div style="margin-top: 25px; text-align: center;">
-          <img src="https://www.la-palombiere-d-henri.com/assets/img/portfolio-2z.jpg" alt="Photo Mariage" style="width: 300px; height: 150px; object-fit: cover; border-radius: 15px;">
-        </div>
-        <p><strong>17h45 : </strong>Cérémonie Laïque</p>
-        <p><strong>18h30 : </strong>Vin d'honneur</p>
-        <p><strong>20h30 : </strong>Dîner suivi de la Soirée</p>
-		<p> <br></p>
-		<hr class="separator"> <p style="font-style: italic; color: var(--secondary); text-align: center;"><strong><br>Dimanche 26 Juillet :</strong></p>
+        <p><strong><span style="font-size: 1.1rem;">17h45 : </span></strong>Cérémonie Laïque</p>
+        <p><strong><span style="font-size: 1.1rem;">18h30 : </span></strong>Vin d'honneur</p>
+        <p><strong><span style="font-size: 1.1rem;">20h30 : </span></strong>Dîner suivi de la Soirée</p>
+		<hr class="separator"> <p style="font-style: italic; color: var(--secondary); text-align: center;"><strong>Dimanche 26 Juillet :</strong></p>
 		<p><span class="note">📍 Palombière d'Henri - Moncrabeau</span></p>
 		<p><strong>11h : </strong>Brunch convivial et sans obligation</p>
   </div>
@@ -422,14 +415,14 @@
     <h2>Informations pratiques</h2>
         <ul class="info-list">
             <li>Pas de dress code, mais les <strong><span style="color: var(--secondary);">tenues colorées</span></strong> sont les bienvenues !</li>
-			<li>N'hésitez pas à nous faire part de vos <strong>régimes alimentaires spécifiques</strong> avant Juin</li>
-			<li><strong>Gares de train</strong> les plus proches 🚝
+			<li>N'hésitez pas à nous faire part de vos <strong><span style="color: var(--secondary);">régimes alimentaires spécifiques</span></strong> avant Juin</li>
+			<li><strong>Gares de train</strong> les plus proches :
 			<ul class="sub-list">
                 <li>Agen</li>
 				<li>Auch</li>
             </ul>
 			</li>
-			<li><strong>Aéroports</strong> les plus proches ✈️
+			<li><strong>Aéroports</strong> les plus proches :
 			<ul class="sub-list">
                 <li>Toulouse-Blagnac</li>
 				<li>Bordeaux-Mérignac</li>
@@ -456,38 +449,47 @@
               </ul>
             </li>
         </ul>
-	    <div style="margin-top: 25px; text-align: center;">
-          <img src="https://explorez.com/wp-content/uploads/2022/01/Lavardens_rustamank_shutterstock_1535907713-scaled.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
-        </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lavardens</p>
-		<div style="margin-top: 25px; text-align: center;">
-          <img src="https://www.aquitaineonline.com/images/stories/Occitanie/Flaran_02012024b.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
-        </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">Abbaye de Flaran</p>
-		<div style="margin-top: 25px; text-align: center;">
-          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuwpA7x9LKcJBkAQBNjP8_B59zK-UoI8n2NtFUKfl2iOyG_0sxVthMunXwDYR-3mgIpC5dL28YyAp0C1r7dUkbsi9OwR7bjj7E9DBRW6ehCT2CfBawzQ05BeVN5hbBsZYMSEFGukYehejY/s640/Sarrant+%252814%2529.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
-        </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">Sarrant</p>
-		<div style="margin-top: 25px; text-align: center;">
-          <img src="https://www.colinmaire.net/wp-content/uploads/2021/02/lac-d-uby-03.jpg.webp" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
-        </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lac de l'Uby</p>
-		<div style="margin-top: 25px; text-align: center;">
-          <img src="https://www.guide-du-gers.com/_bibli/annonces/986/hd/marciac-centre-ville.jpg?v=ficheAnnonce&width=625&height=540&pixelRatio=1.5000" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
-        </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">Marciac</p>
-		<div style="margin-top: 25px; text-align: center;">
-          <img src="https://www.guide-du-gers.com/_bibli/articlesPage/66/images/collegiale-au-traver-du-cloitre-de-la-romieu.jpg?v=ficheArticle&width=819&height=540&pixelRatio=1.5000" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
-        </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">La Romieu</p>
   </div>
 </section>
 
-<section id="quiz" class="section" style="background-color: var(--card);">
+<section id="infos" class="section" style="background-color: var(--card);">
   <div class="container">
-    <h2 style="color: var(--primary-dark);">Petit Quiz des Mariés</h2>
-	<p style="font-style: italic; text-align: center; font-size: 0.8rem;">(Vos réponses ne sont pas enregistrées)</p>
-    <div class="card" id="quiz-container">
+        <div style="margin-top: 25px; text-align: center;">
+          <img src="https://www.domainedesaussignac.com/wp-content/uploads/2014/07/larressingle-arriv%C3%A9e.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; object-position: top; border-radius: 15px;">
+        </div>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Château de Larressingle</p>
+		<div style="margin-top: 25px; text-align: center;">
+          <img src="https://explorez.com/wp-content/uploads/2022/01/Lavardens_rustamank_shutterstock_1535907713-scaled.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
+        </div>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lavardens</p>
+		<div style="margin-top: 25px; text-align: center;">
+          <img src="https://www.aquitaineonline.com/images/stories/Occitanie/Flaran_02012024b.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
+        </div>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Abbaye de Flaran</p>
+		<div style="margin-top: 25px; text-align: center;">
+          <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuwpA7x9LKcJBkAQBNjP8_B59zK-UoI8n2NtFUKfl2iOyG_0sxVthMunXwDYR-3mgIpC5dL28YyAp0C1r7dUkbsi9OwR7bjj7E9DBRW6ehCT2CfBawzQ05BeVN5hbBsZYMSEFGukYehejY/s640/Sarrant+%252814%2529.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
+        </div>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Sarrant</p>
+		<div style="margin-top: 25px; text-align: center;">
+          <img src="https://www.colinmaire.net/wp-content/uploads/2021/02/lac-d-uby-03.jpg.webp" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
+        </div>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lac de l'Uby</p>
+		<div style="margin-top: 25px; text-align: center;">
+          <img src="https://www.guide-du-gers.com/_bibli/annonces/986/hd/marciac-centre-ville.jpg?v=ficheAnnonce&width=625&height=540&pixelRatio=1.5000" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
+        </div>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Marciac</p>
+		<div style="margin-top: 25px; text-align: center;">
+          <img src="https://www.guide-du-gers.com/_bibli/articlesPage/66/images/collegiale-au-traver-du-cloitre-de-la-romieu.jpg?v=ficheArticle&width=819&height=540&pixelRatio=1.5000" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
+        </div>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">La Romieu</p>
+  </div>
+</section>
+
+<section id="quiz" class="section" style="background-color: var(--primary-dark);">
+  <div class="container">
+    <h2>Petit Quiz des Mariés</h2>
+	<p style="font-style: italic; color: white; text-align: center; font-size: 0.8rem;">(Vos réponses ne sont pas enregistrées)</p>
+    <div class="card" id="quiz-container" style="background: var(--card);">
       <div id="quiz-content">
         <p id="quiz-question" style="text-align: center; font-weight: bold; margin-bottom: 20px;">Chargement de la question...</p>
         <div id="quiz-options" style="display: flex; gap: 10px; flex-direction: column;">
@@ -624,7 +626,7 @@
         { q: "Lequel des futurs mariés a déjà voyagé en Asie ?", a: ["Hanaleï", "Adil"], correct: 0 },
         { q: "Quel âge a Adil ?", a: ["29", "32"], correct: 1 },
         { q: "Sur quelle île grecque se sont-ils fiancés ?", a: ["Santorin", "Zakynthos"], correct: 1 },
-        { q: "Quelle est la profession d'Hanaleï ?", a: ["Coordinatrice de S.I", "Consultante"], correct: 0 },
+        { q: "Quelle est la profession d'Hanaleï ?", a: ["Coordinatrice de S.I.", "Consultante"], correct: 0 },
         { q: "Dans quelle ville a grandi Adil ?", a: ["Casablanca", "Agadir"], correct: 1 },
         { q: "Lequel des futurs mariés a déjà travaillé en EHPAD ?", a: ["Adil", "Hanaleï"], correct: 1 },
         { q: "Où vivent actuellement les futurs mariés ?", a: ["Clichy", "Saint-Cloud"], correct: 0 },
