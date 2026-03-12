@@ -316,9 +316,9 @@
     <h2>Confirmation de présence</h2>
     <div class="card">
         <form id="rsvpForm" style="display: flex; flex-direction: column; gap: 10px;">
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                <input type="text" id="rsvpNom" placeholder="Prénom(s), Nom(s)" required style="flex: 2; margin: 0;">
-                <select id="rsvpPresence" style="flex: 1; margin: 0; min-width: 120px;">
+            <div style="display: flex; gap: 10px; flex-wrap: nowrap;">
+                <input type="text" id="rsvpNom" placeholder="Prénom(s), Nom(s)" required style="flex: 3; margin: 0;">
+                <select id="rsvpPresence" style="flex: 1; margin: 0; min-width: 100px;">
                     <option value="Oui !">Oui !</option>
                     <option value="Non">Non 😔</option>
                 </select>
@@ -362,7 +362,7 @@
     <div class="card" style="background: var(--secondary);">
         <p style="text-align: center; font-size: 0.9rem; margin-bottom: 15px;">Le titre qui vous fera danser ! 💃</p>
         <form id="musicForm" style="display: flex; flex-direction: column; gap: 10px;">
-          <input type="text" id="musicTitle" placeholder="Artiste & Titre (ex: Dua Lipa - Levitating)" required style="margin: 0;">
+          <input type="text" id="musicTitle" placeholder="Artiste & Titre (ex : Dua Lipa - Levitating)" required style="margin: 0;">
           <button type="submit" style="margin: 5px 0 0 0; padding: 10px; background: var(--card-input)">Ajouter à la playlist</button>
         </form>
         <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0 15px 0;">
