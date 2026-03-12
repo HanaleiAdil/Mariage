@@ -87,6 +87,7 @@
         }
 
         #histoire { background-color: var(--primary); }
+		#histoire p { color: #FEFDFB; }
         #invites { background-color: var(--card); }
         #invites h2 { color: var(--primary-dark); }
         #programme { background-color: var(--primary); }
@@ -258,6 +259,15 @@
         #musicList .music-entry-title {
           font-size: 0.8rem;
         }
+		
+		.img-histoire {
+          width: 100%;          /* Prend toute la largeur disponible du container */
+          max-width: 500px;     /* Mais ne dépasse pas 500px pour rester élégant */
+          height: auto;         /* Garde les proportions de l'image */
+          border-radius: 15px;  /* Optionnel : pour arrondir les coins comme vos cartes */
+          margin: 10px 0;       /* Ajoute de l'espace au-dessus et en-dessous */
+          box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Petit effet d'ombre */
+        }
 
         footer {
             text-align: center;
@@ -290,14 +300,14 @@
 </nav>
 
 <section id="histoire" class="section">
-  <div class="container">
+  <div class="container" style="text-align: center;">
     <h2>Le saviez-vous ?</h2>
-    <div class="card" style="text-align: center;">
-        <span>Les futurs mariés se sont rencontrés le 13 Novembre 2022 sur le Dancefloor à Paris.<br>Trois ans plus tard, ils se fiancent en Grèce, sur l'île de Zakynthos.</span>
-        <p style="text-align: center; margin-top: 20px; font-style: italic; font-size: 0.9rem; color: var(--primary-dark);">
+        <p>Les futurs mariés se sont rencontrés le 13 Novembre 2022 sur le Dancefloor à Paris.
+		<br>Trois ans plus tard, ils se fiancent en Grèce, sur l'île de Zakynthos.</p>
+		<img src="https://wallpapercave.com/wp/wp3799494.jpg" alt="Photo des fiancés" class="img-histoire">
+        <p style="margin-top: 20px; font-style: italic; font-size: 0.9rem;">
             On a hâte de célébrer cette nouvelle étape avec vous !
         </p>
-    </div>
   </div>
 </section>
 
