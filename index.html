@@ -269,6 +269,28 @@
           margin: 10px 0;       /* Ajoute de l'espace au-dessus et en-dessous */
           box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Petit effet d'ombre */
         }
+		
+		/* Animation de victoire pour le bouton */
+@keyframes victory-bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); background-color: var(--secondary); }
+    100% { transform: scale(1); }
+}
+
+.correct-anim {
+    animation: victory-bounce 0.5s ease;
+    background-color: #A3B18A !important; /* Vert succès doux */
+    color: white;
+}
+
+.wrong-anim {
+    background-color: #e07a5f !important; /* Rouge terra cotta doux */
+    color: white;
+}
+
+#quiz-options button {
+    transition: all 0.3s ease;
+}
 
         footer {
             text-align: center;
@@ -461,6 +483,27 @@
   </div>
 </section>
 
+<section id="quiz" class="section" style="background-color: var(--card);">
+  <div class="container">
+    <h2 style="color: var(--primary-dark);">Petit Quiz des Mariés</h2>
+    <div class="card" id="quiz-container">
+      <div id="quiz-content">
+        <p id="quiz-question" style="text-align: center; font-weight: bold; margin-bottom: 20px;">Chargement de la question...</p>
+        <div id="quiz-options" style="display: flex; gap: 10px; flex-direction: column;">
+          </div>
+        <p id="quiz-feedback" style="text-align: center; margin-top: 15px; font-style: italic; min-height: 24px;"></p>
+      </div>
+      <div id="quiz-final" style="display: none; text-align: center;">
+        <h3 style="color: var(--primary);">Félicitations ! 🍾</h3>
+        <div id="quiz-actions">
+            <button id="btn-next-questions" onclick="resetQuiz()" style="background: var(--secondary); margin-top: 10px;">5 nouvelles questions</button>
+        </div>
+        <p id="quiz-empty-msg" style="display:none; margin-top: 10px; font-style: italic;">Vous avez répondu à toutes nos questions</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
     <p>Merci pour vos réponses !</p>
     <p>Contact Hanaleï : 06 12 92 50 22<br>Contact Adil : 06 15 82 41 22</p>
@@ -572,6 +615,106 @@
         // Mais on retire la classe active de TOUS les onglets du menu
         navLinks.forEach(link => link.classList.remove('active'));
     });
+	
+	
+	// --- LE QUIZZ ---
+
+    const allQuestions = [
+        { q: "Lequel des futurs mariés a déjà voyagé en Asie ?", a: ["Hanaleï", "Adil"], correct: 0 },
+        { q: "Quel âge a Adil ?", a: ["29", "32"], correct: 1 },
+        { q: "Sur quelle île grecque se sont-ils fiancés ?", a: ["Santorin", "Zakynthos"], correct: 1 },
+        { q: "Quelle est la profession d'Hanaleï ?", a: ["Coordinatrice de S.I", "Consultante"], correct: 0 },
+        { q: "Dans quelle ville a grandi Adil ?", a: ["Casablanca", "Agadir"], correct: 1 },
+        { q: "Lequel des futurs mariés a déjà travaillé en EHPAD ?", a: ["Adil", "Hanaleï"], correct: 1 },
+        { q: "A combien de kilomètres de la salle de mariage se trouve leur domicile actuel ?", a: ["Environ 650", "Environ 900"], correct: 0 },
+        { q: "Lequel des futurs mariés a déjà travaillé comme porteur/porteuse funéraire ?", a: ["Adil", "Hanaleï"], correct: 0 },
+        { q: "Quel pays rêvent-ils de visiter ensemble ?", a: ["Le Japon", "Les Philippines"], correct: 1 },
+        { q: "Combien de boutiques la mariée a-t-elle visitées avant de trouver LA robe ?", a: ["5", "2"], correct: 1 }
+    ];
+
+    // Gestion du stock
+    let questionPool = [...allQuestions].sort(() => 0.5 - Math.random()); // Mélange initial
+    let questions = []; 
+    let currentQuestion = 0;
+
+    function prepareNewQuestions() { questions = questionPool.splice(0, 5); }
+
+    function loadQuestion() {
+        const qData = questions[currentQuestion];
+        const questionEl = document.getElementById('quiz-question');
+        const optionsEl = document.getElementById('quiz-options');
+        const feedbackEl = document.getElementById('quiz-feedback');
+
+        questionEl.textContent = `Question ${currentQuestion + 1}/5 : ${qData.q}`;
+        feedbackEl.textContent = "";
+        optionsEl.innerHTML = "";
+
+        qData.a.forEach((option, index) => {
+            const btn = document.createElement('button');
+            btn.textContent = option;
+            btn.style.background = "var(--primary)";
+            btn.onclick = () => checkAnswer(index, btn);
+            optionsEl.appendChild(btn);
+        });
+    }
+
+    window.checkAnswer = function(index, btn) {
+        const feedbackEl = document.getElementById('quiz-feedback');
+        const allButtons = document.querySelectorAll('#quiz-options button');
+    
+        allButtons.forEach(b => b.disabled = true);
+
+        if (index === questions[currentQuestion].correct) {
+            btn.classList.add('correct-anim');
+            feedbackEl.textContent = "Bonne réponse ! ✨";
+            feedbackEl.style.color = "var(--primary-dark)";
+        
+        setTimeout(() => {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showFinal();
+            }
+        }, 1500);
+        } else {
+            btn.classList.add('wrong-anim');
+            feedbackEl.textContent = "Oups ! Réessayez...";
+            feedbackEl.style.color = "#e07a5f";
+        
+            setTimeout(() => {
+                btn.classList.remove('wrong-anim');
+                allButtons.forEach(b => b.disabled = false);
+            }, 1000);
+        }
+    }
+
+    function showFinal() {
+        document.getElementById('quiz-content').style.display = 'none';
+        document.getElementById('quiz-final').style.display = 'block';
+
+        const btnNext = document.getElementById('btn-next-questions');
+        const msgEmpty = document.getElementById('quiz-empty-msg');
+
+        // S'il ne reste plus assez de questions pour une nouvelle série de 5
+        if (questionPool.length < 5) {
+            btnNext.style.display = 'none'; // On cache le bouton
+            msgEmpty.style.display = 'block'; // On affiche le message de fin
+        }
+    }
+
+    window.resetQuiz = function() {
+        currentQuestion = 0;
+        prepareNewQuestions();
+        document.getElementById('quiz-content').style.display = 'block';
+        document.getElementById('quiz-final').style.display = 'none';
+        loadQuestion();
+    }
+
+    // Lancement initial
+    prepareNewQuestions();
+    loadQuestion();
+	
 </script>
 
 </body>
