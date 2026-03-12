@@ -71,22 +71,42 @@
         }
 
         .section {
-            padding: 1.5rem 1.5rem;
-            max-width: 700px;
-            margin: auto;
-            box-sizing: border-box;
+            padding: 2rem 0; /* Plus d'espace vertical pour le défilement */
+            width: 100%;     /* Prend toute la largeur */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        /* Nouveau conteneur pour centrer le contenu textuel */
+        .container {
+            width: 90%;
+            max-width: 800px; /* Le texte reste lisible et ne s'étale pas trop */
+            margin: 0 auto;
+        }
+
+        #histoire { background-color: var(--primary); }
+        #invites { background-color: var(--card); }
+        #invites h2 { color: var(--primary-dark); }
+        #programme { background-color: var(--primary); }
+		#programme p { margin-left: 15px; }
+        #playlist { background-color: var(--card); }
+        #playlist h2 { color: var(--primary-dark); }
+        #infos { background-color: var(--primary-dark); }
+		#infos li {margin-left: 15px; }
 
         .card {
             background: white;
-            padding: 1.5rem;
+            padding: 2.5rem;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            box-sizing: border-box;
         }
         
         .note {
           font-size: 13px;
-          color: #555;
+          color: var(--card);
           font-style: italic;
         }
 
@@ -95,7 +115,7 @@
             font-family: 'Dancing Script', cursive;
             font-size: 2.3rem;
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .card h3 {
@@ -180,12 +200,13 @@
             padding-left: 25px; /* Espace pour la puce */
             margin-bottom: 12px;
             font-size: 0.95rem;
+			color: var(--card);
         }
 
         /* Création d'une puce personnalisée élégante */
         .info-list li::before {
             content: "•";
-            color: var(--primary);
+            color: var(--secondary);
             font-weight: bold;
             display: inline-block; 
             width: 1em;
@@ -206,7 +227,7 @@
         .sub-list li {
             font-size: 0.85rem; /* Légèrement plus petit pour la hiérarchie */
             margin-bottom: 6px;
-            color: #555;        /* Un gris plus doux */
+            color: #ffffff;
             position: relative;
             padding-left: 20px;
         }
@@ -214,7 +235,7 @@
         /* Une puce différente pour les sous-points (un petit tiret ou losange) */
         .sub-list li::before {
             content: "–"; 
-            color: var(--secondary); /* Ton Or/Jaune pour varier du vert */
+            color: var(--secondary);
             position: absolute;
             left: 0;
             font-weight: bold;
@@ -258,7 +279,8 @@
 	<a href="#infos">Infos</a>
 </nav>
 
-<section class="section">
+<section id="histoire" class="section">
+  <div class="container">
     <h2>Le saviez-vous ?</h2>
     <div class="card" style="text-align: center;">
         <span>Les futurs mariés se sont rencontrés le 13 Novembre 2022 sur le Dancefloor à Paris.<br>Trois ans plus tard, ils se fiancent en Grèce, sur l'île de Zakynthos.</span>
@@ -266,9 +288,11 @@
             On a hâte de célébrer cette nouvelle étape avec vous !
         </p>
     </div>
+  </div>
 </section>
 
 <section id="invites" class="section">
+  <div class="container">
     <h2>Confirmez votre présence</h2>
     <div class="card">
         <form id="rsvpForm" style="display: flex; flex-direction: column; gap: 10px;">
@@ -285,12 +309,13 @@
             </p>
         </form>
     </div>
+  </div>
 </section>
 
 <section id="programme" class="section">
+  <div class="container">
     <h2>Le Programme</h2>
-    <div class="card">
-	    <h2 style="color: var(--primary-dark); font-size: 1rem; font-family: 'Montserrat', sans-serif;">Samedi 25 Juillet :</h2>
+	    <h2 style="color: var(--card); font-size: 1rem; font-family: 'Montserrat', sans-serif;">Samedi 25 Juillet :</h2>
 		<p><span class="note">Hôtel de Ville - Larressingle 📍</span></p>
         <p>🏫 <strong>15h30 - 15h45 :</strong> Arrivée à la mairie</p>
 		<p>💍 <strong>16h00 :</strong> Cérémonie Civile</p>
@@ -300,13 +325,14 @@
         <p>🍾 <strong>18h30 :</strong> Vin d'honneur</p>
         <p>💃 <strong>20h30 :</strong> Dîner suivi de la Soirée</p>
 		<p> <br></p>
-		<h2 style="color: var(--primary-dark); font-size: 1rem; font-family: 'Montserrat', sans-serif;">Dimanche 26 Juillet :</h2>
+		<h2 style="color: var(--card); font-size: 1rem; font-family: 'Montserrat', sans-serif;">Dimanche 26 Juillet :</h2>
 		<p><span class="note">Palombière d'Henri - Moncrabeau 📍</span></p>
 		<p>🥐 <strong>11h :</strong> Brunch convivial et sans obligation</p>
-    </div>
+  </div>
 </section>
 
 <section id="playlist" class="section">
+  <div class="container">
     <h2>La Playlist</h2>
     <div class="card">
         <p style="text-align: center; font-size: 0.9rem; margin-bottom: 15px;">Ajoutez le titre qui vous fera danser ! 💃</p>
@@ -318,16 +344,18 @@
         <h3 style="font-size: 1rem; text-align: center; border: none; margin-bottom: 5px;">Vos suggestions :</h3>
         <div id="musicList" class="list-container">Chargement des musiques...</div>
     </div>
+  </div>
 </section>
 
 <section id="infos" class="section">
+  <div class="container">
     <h2>Informations pratiques</h2>
-    <div class="card">
         <ul class="info-list">
-            <li><strong>Gares de train</strong> les plus proches : Agen, Auch</li>
+            <li>Pas de dress code, mais les <strong>tenues colorées</strong> sont les bienvenues !</li>
+			<li><strong>Gares de train</strong> les plus proches : Agen, Auch</li>
             <li><strong>Aéroports</strong> les plus proches : Toulouse-Blagnac, Bordeaux-Mérignac</li>
             <li>Trajet <strong>Larressingle → Moncrabeau</strong> : 20 minutes en voiture</li>
-			<li>Villes les plus proches avec <strong>Hôtels et Airbnb</strong> : Condom, Nérac, Agen</li>
+			<li>Villes les plus proches avec <strong>Hôtels et Airbnbs</strong> : Condom, Nérac, Agen</li>
 			<li>Des <strong>bus réguliers</strong> font le trajet Agen-Condom, mais il est recommandé d'être véhiculé</li>
 			<li><strong>Parkings disponibles</strong> à la Mairie et à la Palombière d'Henri</li>
 			<li>Si vous souhaitez <strong>visiter le Gers</strong> :
@@ -338,10 +366,9 @@
 				<li>Villages typiques : Marciac, Bassoues, Eauze, La Romieu, Lavardens, Montréal-du-Gers, Lectoure, Sarrant</li>
               </ul>
             </li>
-			<li>Pas de dress code, mais les <strong>tenues colorées</strong> sont les bienvenues !</li>
 			<li>Une cagnotte pour notre voyage de noce sera ouverte en Juillet</li>
         </ul>
-    </div>
+  </div>
 </section>
 
 <footer>
