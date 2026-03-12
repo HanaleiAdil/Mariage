@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #A3B18A;    /* Vert sauge A3B18A */
+            --primary: #7F8C6B;    /* Vert sauge A3B18A */
             --primary-dark: #5B674B;
             --secondary: #D2BF81;  /* Or/Jaune */
             --card: #FCF9F2;       /* Ivoire */
@@ -90,7 +90,7 @@
         #invites { background-color: var(--card); }
         #invites h2 { color: var(--primary-dark); }
         #programme { background-color: var(--primary); }
-		#programme p { margin-left: 15px; }
+		#programme p { margin-left: 15px; color: white; }
         #playlist { background-color: var(--card); }
         #playlist h2 { color: var(--card-input); }
         #infos { background-color: var(--primary-dark); }
@@ -107,8 +107,16 @@
         
         .note {
           font-size: 13px;
-          color: #FEFDFB;
+          color: #2D3326;
           font-style: italic;
+        }
+		
+		.separator {
+          border: 0;
+          height: 1px;
+          background: var(--card);
+          width: 80px;
+          margin: 30px auto;           /* Centre la barre avec de l'espace autour */
         }
 
         h2 {
@@ -254,7 +262,8 @@
         footer {
             text-align: center;
             padding: 3rem;
-            color: var(--card);
+            color: var(--primary-dark);
+			background: var(--card);
             font-size: 0.9rem;
         }
         footer a { color: var(--card-input); text-decoration: none; }
@@ -270,7 +279,7 @@
 
 <header>
     <h1><a href="#" id="homeLink" style="text-decoration: none; color: var(--primary-dark)">Hanaleï & Adil</a></h1>
-    <p style="color: var(--secondary); font-size: 0.9rem;">Samedi 25 Juillet 2026</p>
+    <p style="color: var(--card-input); font-size: 0.9rem;"><strong>Samedi 25 Juillet 2026</strong></p>
 </header>
 
 <nav>
@@ -316,7 +325,6 @@
 <section id="programme" class="section">
   <div class="container">
     <h2>Le Programme</h2>
-	    <h2 style="font-size: 1rem; font-family: 'Montserrat', sans-serif;">Samedi 25 Juillet :</h2>
 		<p><span class="note">Hôtel de Ville - Larressingle 📍</span></p>
         <p>🏫 <strong>15h30 - 15h45 :</strong> Arrivée à la mairie</p>
 		<p>💍 <strong>16h00 : </strong>Cérémonie Civile</p>
@@ -326,7 +334,7 @@
         <p>🍾 <strong>18h30 : </strong>Vin d'honneur</p>
         <p>💃 <strong>20h30 : </strong>Dîner suivi de la Soirée</p>
 		<p> <br></p>
-		<h2 style="font-size: 1rem; font-family: 'Montserrat', sans-serif;">Dimanche 26 Juillet :</h2>
+		<hr class="separator"> <p style="font-style: italic; color: var(--secondary);"><strong>Dimanche 26 Juillet :</strong></p>
 		<p><span class="note">Palombière d'Henri - Moncrabeau 📍</span></p>
 		<p>🥐 <strong>11h : </strong>Brunch convivial et sans obligation</p>
   </div>
@@ -374,7 +382,7 @@
 </section>
 
 <footer>
-    <p>Merci pour vos réponses 🤍</p>
+    <p>Merci pour vos réponses !</p>
     <p>Contact Hanaleï : 06 12 92 50 22<br>Contact Adil : 06 15 82 41 22</p>
 </footer>
 
