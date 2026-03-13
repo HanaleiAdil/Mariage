@@ -109,9 +109,9 @@
         
         .note {
           font-size: 13px;
-          color: var(--text);
+          color: var(--card);
           font-style: italic;
-		  font-weight: 900;
+		  font-weight: 700;
         }
 		
 		.separator {
@@ -254,7 +254,7 @@
         }
 		
 		#musicList {
-          max-height: 300px; /* Limite la hauteur de la liste */
+          max-height: 400px; /* Limite la hauteur de la liste */
           overflow-y: auto;  /* Ajoute une barre de défilement si nécessaire */
         }
 
@@ -291,6 +291,9 @@
 
 		#quiz-options button {
     		transition: all 0.3s ease;
+			background-color: var(--card-input);
+    		border: none;
+    		color: white;
 		}
 
         footer {
@@ -483,7 +486,7 @@
   </div>
 </section> 
 
-<section id="quiz" class="section" style="background-color: var(--card-light);">
+<section id="quiz" class="section" style="background-color: var(--card);">
   <div class="container">
     <h2 style="color: var(--card-input);">Petit Quiz des Mariés</h2>
 	<p style="font-style: italic; color: var(--text); text-align: center; font-size: 0.8rem;">(Vos réponses ne sont pas enregistrées)</p>
@@ -652,7 +655,6 @@
         qData.a.forEach((option, index) => {
             const btn = document.createElement('button');
             btn.textContent = option;
-            btn.style.background = "var(--primary)";
             btn.onclick = () => checkAnswer(index, btn);
             optionsEl.appendChild(btn);
         });
