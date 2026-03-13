@@ -7,11 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #7F8C6B;    /* Vert sauge A3B18A */
-            --primary-dark: #5B674B;
+            --primary: #5B674B;    /* Vert sauge 7F8C6B */
+            --primary-dark: #2D3326;
             --secondary: #D2BF81;  /* Or/Jaune */
             --card: #FCF9F2;       /* Ivoire */
-			--card-input: #BC6C25;   /* Terre */
+			--card-light: #FEFDFB;
+			--card-input: #BC6C25;   /* Terracota */
             --text: #2c2c2c;
         }
 
@@ -42,7 +43,7 @@
         nav {
             position: sticky;
             top: 0;
-            background: #FEFDFB;
+            background: var(--card-light);
             display: flex;
             overflow-x: hidden; 
             width: 100%;
@@ -68,7 +69,7 @@
 
         nav a.active {
             background: var(--primary-dark);
-            color: var(--card);
+            color: var(--card-light);
         }
 
         .section {
@@ -88,17 +89,17 @@
 
         #histoire { background-color: var(--primary); }
 		#histoire p { color: #FEFDFB; }
-        #invites { background-color: var(--card); }
+        #invites { background-color: var(--card-light); }
         #invites h2 { color: var(--primary-dark); }
         #programme { background-color: var(--primary); }
-		#programme p { margin-left: 15px; color: white; }
-        #playlist { background-color: var(--card); }
+		#programme p { margin-left: 15px; color: white; font-size: 1.1rem; }
+        #playlist { background-color: var(--card-light); }
         #playlist h2 { color: var(--card-input); }
         #infos { background-color: var(--primary-dark); }
 		#infos li {margin-left: 15px; }
 
         .card {
-            background: #FEFDFB;
+            background: white;
             padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -108,7 +109,7 @@
         
         .note {
           font-size: 13px;
-          color: #2D3326;
+          color: var(--text);
           font-style: italic;
 		  font-weight: 900;
         }
@@ -295,8 +296,8 @@
         footer {
             text-align: center;
             padding: 3rem;
-            color: var(--card);
-			background: var(--primary-dark);
+            color: var(--card-light);
+			background: var(--primary);
             font-size: 0.9rem;
         }
         footer a { color: var(--secondary); text-decoration: none; }
@@ -360,9 +361,9 @@
   <div class="container">
     <h2>Le Programme</h2>
 		<p><span class="note">📍 Hôtel de Ville - Larressingle</span></p>
-        <p><strong><span style="font-size: 1.1rem;">15h30 - 15h45 :</span></strong> Arrivée à la mairie</p>
-		<p><strong><span style="font-size: 1.1rem;">16h : </span></strong>Cérémonie Civile</p>
-		<p><strong><span style="font-size: 1.1rem;">17h : </span></strong>Convoi vers Moncrabeau (20 min 🚘)</p>
+        <p><strong><span style="font-size: 1.2rem;">15h30 - 15h45 :</span></strong> Arrivée à la mairie</p>
+		<p><strong><span style="font-size: 1.2rem;">16h : </span></strong>Cérémonie Civile</p>
+		<p><strong><span style="font-size: 1.2rem;">17h : </span></strong>Convoi vers Moncrabeau (20 min)</p>
 		<div style="text-align: center; margin: 15px 0;">
   		  <svg width="80" height="80" viewBox="0 0 120 150" fill="none" xmlns="http://www.w3.org/2000/svg">
     		<path 
@@ -387,13 +388,13 @@
   		  </svg>
 		</div>
 		<p><span class="note">📍 Palombière d'Henri - Moncrabeau</span></p>
-        <p><strong><span style="font-size: 1.1rem;">17h45 : </span></strong>Cérémonie Laïque</p>
-        <p><strong><span style="font-size: 1.1rem;">18h30 : </span></strong>Vin d'honneur</p>
-        <p><strong><span style="font-size: 1.1rem;">20h30 : </span></strong>Dîner suivi de la Soirée</p>
+        <p><strong><span style="font-size: 1.2rem;">17h45 : </span></strong>Cérémonie Laïque</p>
+        <p><strong><span style="font-size: 1.2rem;">18h30 : </span></strong>Vin d'honneur</p>
+        <p><strong><span style="font-size: 1.2rem;">20h30 : </span></strong>Dîner suivi de la Soirée</p>
 		<p><br></p>
 		<hr class="separator"> <p style="font-style: italic; color: var(--secondary); text-align: center;"><strong><br>Dimanche 26 Juillet :</strong></p>
-		<p><span class="note">📍 Palombière d'Henri - Moncrabeau</span></p>
-		<p><strong>11h : </strong>Brunch convivial et sans obligation</p>
+		<p><span class="note"><br>📍 Palombière d'Henri - Moncrabeau</span></p>
+		<p><strong><span style="font-size: 1.2rem;">11h : </span></strong>Brunch convivial et sans obligation</p>
   </div>
 </section>
 
@@ -482,7 +483,7 @@
   </div>
 </section> 
 
-<section id="quiz" class="section" style="background-color: var(--card);">
+<section id="quiz" class="section" style="background-color: var(--card-light);">
   <div class="container">
     <h2 style="color: var(--card-input);">Petit Quiz des Mariés</h2>
 	<p style="font-style: italic; color: var(--text); text-align: center; font-size: 0.8rem;">(Vos réponses ne sont pas enregistrées)</p>
@@ -620,7 +621,7 @@
 
     const allQuestions = [
         { q: "Lequel des futurs mariés a déjà voyagé en Asie ?", a: ["Hanaleï", "Adil"], correct: 0 },
-        { q: "Quel âge a Adil ?", a: ["29", "32"], correct: 1 },
+        { q: "Quel âge a Adil ?", a: ["28", "32"], correct: 1 },
         { q: "Sur quelle île grecque se sont-ils fiancés ?", a: ["Santorin", "Zakynthos"], correct: 1 },
         { q: "Quelle est la profession d'Hanaleï ?", a: ["Coordinatrice de S.I.", "Consultante"], correct: 0 },
         { q: "Dans quelle ville a grandi Adil ?", a: ["Casablanca", "Agadir"], correct: 1 },
@@ -628,7 +629,7 @@
         { q: "Où vivent actuellement les futurs mariés ?", a: ["Clichy", "Saint-Cloud"], correct: 0 },
         { q: "Lequel des futurs mariés a déjà travaillé comme porteur/porteuse funéraire ?", a: ["Adil", "Hanaleï"], correct: 0 },
         { q: "Quel pays rêvent-ils de visiter ensemble ?", a: ["Le Japon", "Les Philippines"], correct: 1 },
-        { q: "Quelle est la capitale du Maroc ?", a: ["Casablanca", "Rabat"], correct: 1 }
+        { q: "De quel siècle date la construction du château de Larressingle ?", a: ["VIe siècle", "XIIIe siècle"], correct: 1 }
     ];
 
     // Gestion du stock
@@ -713,6 +714,10 @@
     // Lancement initial
     prepareNewQuestions();
     loadQuestion();
+	
+	// Pour que les boutons HTML puissent appeler les fonctions
+    window.resetQuiz = resetQuiz;
+    window.checkAnswer = checkAnswer;
 	
 </script>
 
