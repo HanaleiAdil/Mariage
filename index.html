@@ -140,12 +140,6 @@
             opacity: 0.5;   /* Optionnel : pour rendre le trait plus discret */
         }
 
-        /* Ajustement spécifique pour les sections sombres (Quiz et Invités) */
-        #invites h2::before, #invites h2::after,
-        #quiz h2::before, #quiz h2::after {
-            background: var(--card-light);
-        }
-
         .card h3 {
             color: var(--primary);
             border-bottom: 1px solid var(--secondary);
@@ -270,7 +264,7 @@
         }
 		
 		#musicList {
-          max-height: 350px; /* Limite la hauteur de la liste */
+          max-height: 300px; /* Limite la hauteur de la liste */
           overflow-y: auto;  /* Ajoute une barre de défilement si nécessaire */
         }
 
@@ -349,9 +343,7 @@
 	<img src="image_adil_hanalei.jpg" alt="Photo du mariage" class="img-histoire">
     <p>Trois ans plus tard, ils se fiancent en Grèce, sur l'île de Zakynthos.</p>
     <img src="https://wallpapercave.com/wp/wp3799494.jpg" alt="Photo des fiancés" class="img-histoire">
-    <p style="margin-top: 20px; font-style: italic; font-size: 0.9rem;">
-        On a hâte de célébrer notre mariage avec vous !
-    </p>
+    <p style="font-style: italic;"><strong>On a hâte de célébrer notre mariage avec vous !</strong></p>
   </div>
 </section>
 
@@ -368,7 +360,7 @@
                 </select>
             </div>
             <button type="submit" style="margin: 5px 0 0 0; padding: 10px; background: var(--primary);">Envoyer ma réponse</button>
-            <p style="font-style: italic; font-size: 0.7rem; text-align: center; color: #888; margin: 0;">
+            <p style="font-style: italic; font-size: 0.8rem; text-align: center; color: #888; margin: 0;">
                 Votre réponse sera transmise directement aux mariés
             </p>
         </form>
@@ -505,7 +497,7 @@
 
 <section id="quiz" class="section">
   <div class="container">
-    <h2>Quiz des futurs mariés</h2>
+    <h2>Quiz bonus</h2>
 	<p style="font-style: italic; text-align: center; font-size: 0.8rem;">(Vos réponses ne sont pas enregistrées)</p>
     <div class="card" id="quiz-container" style="background-color: var(--card);">
       <div id="quiz-content">
