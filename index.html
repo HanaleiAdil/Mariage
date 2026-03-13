@@ -7,12 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #5B674B;    /* Vert sauge 7F8C6B */
-            --primary-dark: #2D3326;
-            --secondary: #D2BF81;  /* Or/Jaune */
-            --card: #FCF9F2;       /* Ivoire */
-			--card-light: #FEFDFB;
-			--card-input: #BC6C25;   /* Terracota */
+            --primary: #B35A38;    /* Terracota */
+            --primary-dark: #8A4429;
+            --secondary: #D1A84F;  /* Or/Jaune */
+            --card: #F0E3D1;       /* Ivoire */
+			--card-light: #FCF9F2;   /* Ivoire clair */
+			--card-input: #596130;   /* Vert */
             --text: #2c2c2c;
         }
 
@@ -30,7 +30,7 @@
             background: var(--card-light);
             padding: 2rem 1rem;
             text-align: center;
-            border-bottom: 3px solid var(--primary);
+            border-bottom: 3px solid var(--secondary);
         }
 
         h1 {
@@ -43,7 +43,7 @@
         nav {
             position: sticky;
             top: 0;
-            background: var(--card);
+            background: var(--primary);
             display: flex;
             overflow-x: hidden; 
             width: 100%;
@@ -54,7 +54,7 @@
 		nav a {
             padding: 1rem 0.2rem; 
             text-decoration: none;
-            color: var(--primary-dark);
+            color: var(--card-light);
             font-size: 0.75rem; 
             font-weight: bold;
             flex: 1;
@@ -91,11 +91,10 @@
 		#histoire p { color: var(--primary-dark); }
         #invites { background-color: var(--primary); }
         #invites h2 { color: var(--card-light); }
-        #programme { background-color: var(--card); }
-		#programme p { margin-left: 15px; color: var(--card-input); font-size: 1.1rem; }
-        #playlist { background-color: var(--card-input); }
-        #playlist h2 { color: var(--card-light); }
-        #infos { background-color: var(--card); }
+		#programme p { margin-left: 15px; color: var(--primary); font-size: 1.1rem; }
+        #playlist { background-color: var(--card); }
+        #playlist h2 { color: var(--card-input); }
+        #infos { background-color: var(--primary-dark); }
 		#infos li {margin-left: 15px; }
 
         .card {
@@ -117,17 +116,34 @@
 		.separator {
           border: 0;
           height: 1px;
-          background: var(--card-input);
+          background: var(--primary-dark);
           width: 90px;
           margin: 30px auto;
         }
 
         h2 {
-            color: var(--card-input);
+            color: var(--primary);
             font-family: 'Dancing Script', cursive;
             font-size: 2.3rem;
+			align-items: center;
             text-align: center;
             margin-bottom: 2.5rem;
+			display: flex;
+        }
+
+        h2::before, h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: currentColor; /* Utilise la couleur du texte du titre */
+            margin: 0 15px; /* Espace entre le texte et la ligne */
+            opacity: 0.5;   /* Optionnel : pour rendre le trait plus discret */
+        }
+
+        /* Ajustement spécifique pour les sections sombres (Quiz et Invités) */
+        #invites h2::before, #invites h2::after,
+        #quiz h2::before, #quiz h2::after {
+            background: var(--card-light);
         }
 
         .card h3 {
@@ -212,13 +228,13 @@
             padding-left: 25px; /* Espace pour la puce */
             margin-bottom: 12px;
             font-size: 0.95rem;
-			color: var(--primary-dark);
+			color: var(--card-light);
         }
 
         /* Création d'une puce personnalisée élégante */
         .info-list li::before {
             content: "•";
-            color: var(--text);
+            color: var(--card-light);
             font-weight: bold;
             display: inline-block; 
             width: 1em;
@@ -239,7 +255,7 @@
         .sub-list li {
             font-size: 0.9rem;
             margin-bottom: 6px;
-            color: var(--primary);
+            color: var(--card-light);
             position: relative;
             padding-left: 20px;
         }
@@ -247,7 +263,7 @@
         /* Une puce différente pour les sous-points (un petit tiret ou losange) */
         .sub-list li::before {
             content: "–"; 
-            color: var(--primary);
+            color: var(--card);
             position: absolute;
             left: 0;
             font-weight: bold;
@@ -316,7 +332,7 @@
 
 <header>
     <h1><a href="#" id="homeLink" style="text-decoration: none; color: var(--primary-dark)">Hanaleï & Adil</a></h1>
-    <p style="color: #C5A059; font-size: 1rem;"><strong>Samedi 25 Juillet</strong></p>
+    <h2 style="color: #C5A059; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; padding-left: 20%; padding-right: 20%;">Samedi 25 Juillet</h2>
 </header>
 
 <nav>
@@ -328,13 +344,14 @@
 
 <section id="histoire" class="section">
   <div class="container" style="text-align: center;">
-    <h2>L'histoire</h2>
-        <p>Les futurs mariés se sont rencontrés le 13 Novembre 2022 sur le Dancefloor à Paris.
-		<br>Trois ans plus tard, ils se fiancent en Grèce, sur l'île de Zakynthos.</p>
-		<img src="https://wallpapercave.com/wp/wp3799494.jpg" alt="Photo des fiancés" class="img-histoire">
-        <p style="margin-top: 20px; font-style: italic; font-size: 0.9rem;">
-            On a hâte de célébrer notre mariage avec vous !
-        </p>
+    <h2 class="short-lines">L'histoire</h2>
+    <p>Les futurs mariés se sont rencontrés le 13 Novembre 2022 sur le Dancefloor à Paris.</p>
+	<img src="image_adil_hanalei.jpg" alt="Photo du mariage" class="img-histoire">
+    <p>Trois ans plus tard, ils se fiancent en Grèce, sur l'île de Zakynthos.</p>
+    <img src="https://wallpapercave.com/wp/wp3799494.jpg" alt="Photo des fiancés" class="img-histoire">
+    <p style="margin-top: 20px; font-style: italic; font-size: 0.9rem;">
+        On a hâte de célébrer notre mariage avec vous !
+    </p>
   </div>
 </section>
 
@@ -350,7 +367,7 @@
                     <option value="Non">Non 😔</option>
                 </select>
             </div>
-            <button type="submit" style="margin: 5px 0 0 0; padding: 10px; background: #C5A059;">Envoyer ma réponse</button>
+            <button type="submit" style="margin: 5px 0 0 0; padding: 10px; background: var(--primary);">Envoyer ma réponse</button>
             <p style="font-style: italic; font-size: 0.7rem; text-align: center; color: #888; margin: 0;">
                 Votre réponse sera transmise directement aux mariés
             </p>
@@ -404,8 +421,8 @@
 <section id="playlist" class="section">
   <div class="container">
     <h2>La Playlist du soir</h2>
-    <div class="card" style="background: var(--secondary);">
-        <p style="text-align: center; font-size: 0.9rem; margin-bottom: 15px;">Le titre qui vous fera danser ! 💃</p>
+    <div class="card">
+        <p style="text-align: center; font-size: 0.9rem; margin-bottom: 15px;">Quel titre vous fera danser ? 💃</p>
         <form id="musicForm" style="display: flex; flex-direction: column; gap: 10px;">
           <input type="text" id="musicTitle" placeholder="Artiste & Titre (ex : Dua Lipa - Levitating)" required style="margin: 0;">
           <button type="submit" style="margin: 5px 0 0 0; padding: 10px; background: var(--card-input)">Ajouter à la playlist</button>
@@ -418,10 +435,10 @@
 
 <section id="infos" class="section">
   <div class="container">
-    <h2>Informations pratiques</h2>
+    <h2 style="color: var(--card);">Informations pratiques</h2>
         <ul class="info-list">
-            <li>Pas de dress code, mais les <strong><span style="color: var(--card-input);">tenues colorées</span></strong> sont les bienvenues !</li>
-			<li>N'hésitez pas à nous faire part de vos <strong><span style="color: var(--card-input);">régimes alimentaires spécifiques</span></strong> avant Juin</li>
+            <li>Pas de dress code, mais les <strong>tenues colorées</strong> sont les bienvenues !</li>
+			<li>N'hésitez pas à nous faire part de vos <strong>régimes alimentaires spécifiques</strong> avant Juin</li>
 			<li><strong>Gares de train</strong> les plus proches :
 			<ul class="sub-list">
                 <li>Agen</li>
@@ -436,15 +453,15 @@
 			</li>
 			<li>Des <strong>bus réguliers</strong> font le trajet Agen-Condom, mais il est recommandé d'être véhiculé sur place</li>
             <li>Trajet <strong>Larressingle → Moncrabeau</strong> : 20 minutes en voiture</li>
-			<li>Villes les plus proches avec <strong><span style="color: var(--card-input);">Hôtels et Airbnbs</span></strong> :
+			<li>Villes les plus proches avec <strong>Hôtels et Airbnbs</strong> :
 			<ul class="sub-list">
                 <li>Condom</li>
 				<li>Nérac</li>
 				<li>Agen</li>
             </ul>
 			</li>
-			<li>Des <strong><span style="color: var(--card-input);">parkings sont disponibles</span></strong> à la Mairie et à la Palombière d'Henri.</li>
-			<li>Si vous souhaitez nous aider à réaliser notre <strong><span style="color: var(--card-input);">voyage de noces</span></strong> en Asie prévu pour 2027, une cagnotte en ligne sera ouverte en juillet, ainsi qu'une urne le jour J</li>
+			<li>Des <strong>parkings sont disponibles</strong> à la Mairie et à la Palombière d'Henri</li>
+			<li>Si vous souhaitez nous aider à réaliser notre <strong>voyage de noces</strong> en Asie prévu pour 2027, une cagnotte en ligne sera ouverte en juillet, ainsi qu'une urne sur place</li>
 			<li>Le jour J, <strong>les photos sont les bienvenues</strong>, en restant discret vis-à-vis du photographe 📸</li>
 			<li>Si vous souhaitez <strong>visiter le Gers</strong> :
               <ul class="sub-list">
@@ -455,41 +472,41 @@
               </ul>
             </li>
         </ul>
-		<div style="margin-top: 25px; text-align: center;">
+        <div style="margin-top: 25px; text-align: center;">
           <img src="https://www.domainedesaussignac.com/wp-content/uploads/2014/07/larressingle-arriv%C3%A9e.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; object-position: top; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Château de Larressingle</p>
+		<p style="text-align: center; color: var(--card-light); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Château de Larressingle</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://explorez.com/wp-content/uploads/2022/01/Lavardens_rustamank_shutterstock_1535907713-scaled.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lavardens</p>
+		<p style="text-align: center; color: var(--card-light); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lavardens</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://www.aquitaineonline.com/images/stories/Occitanie/Flaran_02012024b.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Abbaye de Flaran</p>
+		<p style="text-align: center; color: var(--card-light); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Abbaye de Flaran</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuwpA7x9LKcJBkAQBNjP8_B59zK-UoI8n2NtFUKfl2iOyG_0sxVthMunXwDYR-3mgIpC5dL28YyAp0C1r7dUkbsi9OwR7bjj7E9DBRW6ehCT2CfBawzQ05BeVN5hbBsZYMSEFGukYehejY/s640/Sarrant+%252814%2529.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Sarrant</p>
+		<p style="text-align: center; color: var(--card-light); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Sarrant</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://www.colinmaire.net/wp-content/uploads/2021/02/lac-d-uby-03.jpg.webp" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lac de l'Uby</p>
+		<p style="text-align: center; color: var(--card-light); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lac de l'Uby</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://www.guide-du-gers.com/_bibli/annonces/986/hd/marciac-centre-ville.jpg?v=ficheAnnonce&width=625&height=540&pixelRatio=1.5000" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Marciac</p>
+		<p style="text-align: center; color: var(--card-light); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Marciac</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://www.guide-du-gers.com/_bibli/articlesPage/66/images/collegiale-au-traver-du-cloitre-de-la-romieu.jpg?v=ficheArticle&width=819&height=540&pixelRatio=1.5000" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">La Romieu</p>
-  </div>
+		<p style="text-align: center; color: var(--card-light); font-style: italic; font-size: 0.8rem; margin-top: 2px;">La Romieu</p>
+	</div>
 </section> 
 
-<section id="quiz" class="section" style="background-color: var(--primary-dark);">
+<section id="quiz" class="section">
   <div class="container">
-    <h2 style="color: var(--card-light);">Petit Quiz des Mariés</h2>
-	<p style="font-style: italic; color: var(--card-light); text-align: center; font-size: 0.8rem;">(Vos réponses ne sont pas enregistrées)</p>
+    <h2>Petit Quiz des Mariés</h2>
+	<p style="font-style: italic; text-align: center; font-size: 0.8rem;">(Vos réponses ne sont pas enregistrées)</p>
     <div class="card" id="quiz-container" style="background-color: var(--card);">
       <div id="quiz-content">
         <p id="quiz-question" style="text-align: center; font-weight: bold; margin-bottom: 20px;">Chargement de la question...</p>
