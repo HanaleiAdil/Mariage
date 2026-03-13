@@ -27,7 +27,7 @@
         }
 
         header {
-            background: var(--card);
+            background: var(--card-light);
             padding: 2rem 1rem;
             text-align: center;
             border-bottom: 3px solid var(--primary);
@@ -43,7 +43,7 @@
         nav {
             position: sticky;
             top: 0;
-            background: var(--card-light);
+            background: var(--card);
             display: flex;
             overflow-x: hidden; 
             width: 100%;
@@ -87,19 +87,19 @@
             margin: 0 auto;
         }
 
-        #histoire { background-color: var(--primary); }
-		#histoire p { color: #FEFDFB; }
-        #invites { background-color: var(--card-light); }
-        #invites h2 { color: var(--primary-dark); }
-        #programme { background-color: var(--primary); }
-		#programme p { margin-left: 15px; color: white; font-size: 1.1rem; }
-        #playlist { background-color: var(--card-light); }
-        #playlist h2 { color: var(--card-input); }
-        #infos { background-color: var(--primary-dark); }
+        #histoire { background-color: var(--card); }
+		#histoire p { color: var(--primary-dark); }
+        #invites { background-color: var(--primary); }
+        #invites h2 { color: var(--card-light); }
+        #programme { background-color: var(--card); }
+		#programme p { margin-left: 15px; color: var(--card-input); font-size: 1.1rem; }
+        #playlist { background-color: var(--card-input); }
+        #playlist h2 { color: var(--card-light); }
+        #infos { background-color: var(--card); }
 		#infos li {margin-left: 15px; }
 
         .card {
-            background: white;
+            background: var(--card-light);
             padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -109,7 +109,7 @@
         
         .note {
           font-size: 13px;
-          color: var(--card);
+          color: var(--primary-dark);
           font-style: italic;
 		  font-weight: 700;
         }
@@ -117,13 +117,13 @@
 		.separator {
           border: 0;
           height: 1px;
-          background: var(--card);
+          background: var(--card-input);
           width: 80px;
           margin: 30px auto;           /* Centre la barre avec de l'espace autour */
         }
 
         h2 {
-            color: #FEFDFB;
+            color: var(--card-input);
             font-family: 'Dancing Script', cursive;
             font-size: 2.3rem;
             text-align: center;
@@ -212,7 +212,7 @@
             padding-left: 25px; /* Espace pour la puce */
             margin-bottom: 12px;
             font-size: 0.95rem;
-			color: var(--card);
+			color: var(--primary-dark);
         }
 
         /* Création d'une puce personnalisée élégante */
@@ -237,9 +237,9 @@
         }
 
         .sub-list li {
-            font-size: 0.85rem; /* Légèrement plus petit pour la hiérarchie */
+            font-size: 0.9rem;
             margin-bottom: 6px;
-            color: #ffffff;
+            color: var(--primary);
             position: relative;
             padding-left: 20px;
         }
@@ -291,7 +291,7 @@
 
 		#quiz-options button {
     		transition: all 0.3s ease;
-			background-color: var(--card-input);
+			background-color: #7F8C6B;
     		border: none;
     		color: white;
 		}
@@ -299,11 +299,11 @@
         footer {
             text-align: center;
             padding: 3rem;
-            color: var(--card-light);
-			background: var(--primary);
+            color: var(--primary-dark);
+			background: var(--card-light);
             font-size: 0.9rem;
         }
-        footer a { color: var(--secondary); text-decoration: none; }
+        footer a { color: var(--primary); text-decoration: none; }
 
         /* Media query pour les très petits écrans */
         @media (max-width: 360px) {
@@ -356,7 +356,7 @@
             </p>
         </form>
     </div>
-	<p style="font-style: italic; font-size: 0.9rem; text-align: center; color: var(--primary-dark); margin-top: 35px;">Merci pour vos réponses !</p>
+	<p style="font-style: italic; font-size: 0.9rem; text-align: center; color: var(--card-light); margin-top: 35px;">Merci pour vos réponses !</p>
   </div>
 </section>
 
@@ -374,7 +374,7 @@
          		C 60 10, 100 10, 100 50 
          		C 100 90, 30 90, 30 50 
          		C 30 20, 90 25, 60 140" 
-      		stroke="#FFFFFF" 
+      		stroke="var(--text)" 
       		stroke-width="2" 
       		stroke-dasharray="6,6" 
       		fill="none" 
@@ -382,7 +382,7 @@
     		/>
     		<path 
       		d="M52 132 L 60 140 L 68 132" 
-      		stroke="#FFFFFF" 
+      		stroke="var(--text)" 
       		stroke-width="2" 
       		fill="none" 
       		stroke-linecap="round" 
@@ -395,7 +395,7 @@
         <p><strong>18h30 : </strong>Vin d'honneur</p>
         <p><strong>20h30 : </strong>Dîner suivi de la Soirée</p>
 		<p><br></p>
-		<hr class="separator"> <p style="font-style: italic; color: var(--secondary); text-align: center;"><strong><br>Dimanche 26 Juillet :</strong></p>
+		<hr class="separator"> <p style="font-style: italic; color: var(--primary-dark); text-align: center;"><strong><br>Dimanche 26 Juillet :</strong></p>
 		<p><span class="note"><br>📍 Palombière d'Henri - Moncrabeau</span></p>
 		<p><strong>11h : </strong>Brunch convivial et sans obligation</p>
   </div>
@@ -486,11 +486,11 @@
   </div>
 </section> 
 
-<section id="quiz" class="section" style="background-color: var(--card);">
+<section id="quiz" class="section" style="background-color: var(--primary);">
   <div class="container">
-    <h2 style="color: var(--card-input);">Petit Quiz des Mariés</h2>
-	<p style="font-style: italic; color: var(--text); text-align: center; font-size: 0.8rem;">(Vos réponses ne sont pas enregistrées)</p>
-    <div class="card" id="quiz-container" style="background: white;">
+    <h2 style="color: var(--card-light);">Petit Quiz des Mariés</h2>
+	<p style="font-style: italic; color: var(--card-light); text-align: center; font-size: 0.8rem;">(Vos réponses ne sont pas enregistrées)</p>
+    <div class="card" id="quiz-container">
       <div id="quiz-content">
         <p id="quiz-question" style="text-align: center; font-weight: bold; margin-bottom: 20px;">Chargement de la question...</p>
         <div id="quiz-options" style="display: flex; gap: 10px; flex-direction: column;">
