@@ -109,7 +109,7 @@
         
         .note {
           font-size: 13px;
-          color: var(--primary-dark);
+          color: var(--text);
           font-style: italic;
 		  font-weight: 700;
         }
@@ -119,7 +119,7 @@
           height: 1px;
           background: var(--card-input);
           width: 80px;
-          margin: 30px auto;           /* Centre la barre avec de l'espace autour */
+          margin: 30px auto;
         }
 
         h2 {
@@ -218,7 +218,7 @@
         /* Création d'une puce personnalisée élégante */
         .info-list li::before {
             content: "•";
-            color: var(--secondary);
+            color: var(--text);
             font-weight: bold;
             display: inline-block; 
             width: 1em;
@@ -247,7 +247,7 @@
         /* Une puce différente pour les sous-points (un petit tiret ou losange) */
         .sub-list li::before {
             content: "–"; 
-            color: var(--secondary);
+            color: var(--primary);
             position: absolute;
             left: 0;
             font-weight: bold;
@@ -291,7 +291,7 @@
 
 		#quiz-options button {
     		transition: all 0.3s ease;
-			background-color: #7F8C6B;
+			background-color: var(--primary);
     		border: none;
     		color: white;
 		}
@@ -350,7 +350,7 @@
                     <option value="Non">Non 😔</option>
                 </select>
             </div>
-            <button type="submit" style="margin: 5px 0 0 0; padding: 10px; background: var(--secondary);">Envoyer ma réponse</button>
+            <button type="submit" style="margin: 5px 0 0 0; padding: 10px; background: #C5A059;">Envoyer ma réponse</button>
             <p style="font-style: italic; font-size: 0.7rem; text-align: center; color: #888; margin: 0;">
                 Votre réponse sera transmise directement aux mariés
             </p>
@@ -395,7 +395,7 @@
         <p><strong>18h30 : </strong>Vin d'honneur</p>
         <p><strong>20h30 : </strong>Dîner suivi de la Soirée</p>
 		<p><br></p>
-		<hr class="separator"> <p style="font-style: italic; color: var(--primary-dark); text-align: center;"><strong><br>Dimanche 26 Juillet :</strong></p>
+		<hr class="separator"><p style="text-align:center; font-family:'Dancing Script'; font-size:1.8rem; margin-bottom:15px;">Dimanche</p>
 		<p><span class="note"><br>📍 Palombière d'Henri - Moncrabeau</span></p>
 		<p><strong>11h : </strong>Brunch convivial et sans obligation</p>
   </div>
@@ -420,8 +420,8 @@
   <div class="container">
     <h2>Informations pratiques</h2>
         <ul class="info-list">
-            <li>Pas de dress code, mais les <strong><span style="color: var(--secondary);">tenues colorées</span></strong> sont les bienvenues !</li>
-			<li>N'hésitez pas à nous faire part de vos <strong><span style="color: var(--secondary);">régimes alimentaires spécifiques</span></strong> avant Juin</li>
+            <li>Pas de dress code, mais les <strong><span style="color: var(--card-input);">tenues colorées</span></strong> sont les bienvenues !</li>
+			<li>N'hésitez pas à nous faire part de vos <strong><span style="color: var(--card-input);">régimes alimentaires spécifiques</span></strong> avant Juin</li>
 			<li><strong>Gares de train</strong> les plus proches :
 			<ul class="sub-list">
                 <li>Agen</li>
@@ -436,15 +436,15 @@
 			</li>
 			<li>Des <strong>bus réguliers</strong> font le trajet Agen-Condom, mais il est recommandé d'être véhiculé sur place</li>
             <li>Trajet <strong>Larressingle → Moncrabeau</strong> : 20 minutes en voiture.</li>
-			<li>Villes les plus proches avec <strong><span style="color: var(--secondary);">Hôtels et Airbnbs</span></strong> :
+			<li>Villes les plus proches avec <strong><span style="color: var(--card-input);">Hôtels et Airbnbs</span></strong> :
 			<ul class="sub-list">
                 <li>Condom</li>
 				<li>Nérac</li>
 				<li>Agen</li>
             </ul>
 			</li>
-			<li>Des <strong><span style="color: var(--secondary);">parkings sont disponibles</span></strong> à la Mairie et à la Palombière d'Henri.</li>
-			<li>Si vous souhaitez nous aider à réaliser notre <strong><span style="color: var(--secondary);">voyage de noces</span></strong> en Asie prévu pour 2027, une cagnotte en ligne sera ouverte en juillet, ainsi qu'une urne le jour J.</li>
+			<li>Des <strong><span style="color: var(--card-input);">parkings sont disponibles</span></strong> à la Mairie et à la Palombière d'Henri.</li>
+			<li>Si vous souhaitez nous aider à réaliser notre <strong><span style="color: var(--card-input);">voyage de noces</span></strong> en Asie prévu pour 2027, une cagnotte en ligne sera ouverte en juillet, ainsi qu'une urne le jour J.</li>
 			<li>Le jour J, <strong>les photos sont les bienvenues</strong>, en restant discret vis-à-vis du photographe 📸</li>
 			<li>Si vous souhaitez <strong>visiter le Gers</strong> :
               <ul class="sub-list">
@@ -458,35 +458,35 @@
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://www.domainedesaussignac.com/wp-content/uploads/2014/07/larressingle-arriv%C3%A9e.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; object-position: top; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">Château de Larressingle</p>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Château de Larressingle</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://explorez.com/wp-content/uploads/2022/01/Lavardens_rustamank_shutterstock_1535907713-scaled.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lavardens</p>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lavardens</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://www.aquitaineonline.com/images/stories/Occitanie/Flaran_02012024b.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">Abbaye de Flaran</p>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Abbaye de Flaran</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuwpA7x9LKcJBkAQBNjP8_B59zK-UoI8n2NtFUKfl2iOyG_0sxVthMunXwDYR-3mgIpC5dL28YyAp0C1r7dUkbsi9OwR7bjj7E9DBRW6ehCT2CfBawzQ05BeVN5hbBsZYMSEFGukYehejY/s640/Sarrant+%252814%2529.jpg" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">Sarrant</p>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Sarrant</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://www.colinmaire.net/wp-content/uploads/2021/02/lac-d-uby-03.jpg.webp" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lac de l'Uby</p>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Lac de l'Uby</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://www.guide-du-gers.com/_bibli/annonces/986/hd/marciac-centre-ville.jpg?v=ficheAnnonce&width=625&height=540&pixelRatio=1.5000" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">Marciac</p>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">Marciac</p>
 		<div style="margin-top: 25px; text-align: center;">
           <img src="https://www.guide-du-gers.com/_bibli/articlesPage/66/images/collegiale-au-traver-du-cloitre-de-la-romieu.jpg?v=ficheArticle&width=819&height=540&pixelRatio=1.5000" alt="Photo Mariage" style="width: 350px; height: 180px; object-fit: cover; border-radius: 15px;">
         </div>
-		<p style="text-align: center; color: white; font-style: italic; font-size: 0.8rem; margin-top: 2px;">La Romieu</p>
+		<p style="text-align: center; color: var(--text); font-style: italic; font-size: 0.8rem; margin-top: 2px;">La Romieu</p>
   </div>
 </section> 
 
-<section id="quiz" class="section" style="background-color: var(--primary);">
+<section id="quiz" class="section" style="background-color: var(--primary-dark);">
   <div class="container">
     <h2 style="color: var(--card-light);">Petit Quiz des Mariés</h2>
 	<p style="font-style: italic; color: var(--card-light); text-align: center; font-size: 0.8rem;">(Vos réponses ne sont pas enregistrées)</p>
