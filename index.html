@@ -73,7 +73,7 @@
         }
 
         .section {
-            padding: 2rem 0; /* Plus d'espace vertical pour le défilement */
+            padding: 1rem 0;
             width: 100%;     /* Prend toute la largeur */
             display: flex;
             flex-direction: column;
@@ -96,6 +96,10 @@
         #playlist h2 { color: var(--card-input); }
         #infos { background-color: var(--primary-dark); }
 		#infos li {margin-left: 15px; }
+		
+		#programme p {
+   		    margin: 5px 0 6px 15px; /* Force une marge petite en haut et en bas (5px) */
+		}
 
         .card {
             background: var(--card-light);
@@ -127,7 +131,8 @@
             font-size: 2.3rem;
 			align-items: center;
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
+			margin-top: 1.8rem;
 			display: flex;
         }
 
@@ -326,7 +331,7 @@
 
 <header>
     <h1><a href="#" id="homeLink" style="text-decoration: none; color: var(--primary-dark)">Hanaleï & Adil</a></h1>
-    <h2 style="color: #C5A059; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; padding-left: 20%; padding-right: 20%;">Samedi 25 Juillet</h2>
+    <h2 style="margin: 0; color: #C5A059; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; padding-left: 20%; padding-right: 20%;">Samedi 25 Juillet</h2>
 </header>
 
 <nav>
@@ -403,10 +408,10 @@
         <p><strong>17h45 : </strong>Cérémonie Laïque</p>
         <p><strong>18h30 : </strong>Vin d'honneur</p>
         <p><strong>20h30 : </strong>Dîner suivi de la Soirée</p>
-		<p><br></p>
 		<hr class="separator"><p style="text-align: center; font-family: 'Dancing Script'; font-size: 1.8rem; margin-bottom: 15px;">Dimanche</p>
 		<p><span class="note"><br>📍 Palombière d'Henri - Moncrabeau</span></p>
 		<p><strong>11h : </strong>Brunch convivial et sans obligation</p>
+		<p><br></p>
   </div>
 </section>
 
@@ -422,6 +427,7 @@
         <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0 15px 0;">
         <div id="musicList" class="list-container">Chargement des musiques...</div>
     </div>
+	<p><br></p>
   </div>
 </section>
 
