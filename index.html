@@ -270,7 +270,9 @@
 		
         /* Barre de défilement Chrome, Edge, Safari */
         #musicList::-webkit-scrollbar {
-          width: 10px; /* Largeur de la barre */
+          -webkit-appearance: none; /* Annule l'apparence système */
+          width: 10px;
+          display: block;
         }
 
         #musicList::-webkit-scrollbar-track {
@@ -292,6 +294,7 @@
         #musicList {
           max-height: 300px;
           overflow-y: auto;
+		  -webkit-overflow-scrolling: touch;
           scrollbar-width: thin;
           scrollbar-color: var(--card-input) var(--card);
         }
