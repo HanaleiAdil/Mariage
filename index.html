@@ -268,11 +268,35 @@
             font-weight: bold;
         }
 		
-		#musicList {
-          max-height: 300px; /* Limite la hauteur de la liste */
-          overflow-y: auto;  /* Ajoute une barre de défilement si nécessaire */
+        /* Barre de défilement Chrome, Edge, Safari */
+        #musicList::-webkit-scrollbar {
+          width: 10px; /* Largeur de la barre */
         }
 
+        #musicList::-webkit-scrollbar-track {
+          background: var(--card); /* Fond assorti à ta carte ivoire */
+          border-radius: 10px;
+        }
+
+        #musicList::-webkit-scrollbar-thumb {
+          background: var(--card-input); /* Couleur Terracotta pour être bien visible */
+          border-radius: 10px;
+          border: 2px solid var(--card); /* Crée un petit effet de marge */
+        }
+
+        #musicList::-webkit-scrollbar-thumb:hover {
+          background: var(--primary-dark); /* Plus foncé au survol */
+        }
+
+        /* Barre de défilement Firefox */
+        #musicList {
+          max-height: 300px;
+          overflow-y: auto;
+          scrollbar-width: thin;
+          scrollbar-color: var(--card-input) var(--card);
+        }
+
+        /* Garde ton style pour le texte des musiques */
         #musicList .music-entry-title {
           font-size: 0.8rem;
         }
@@ -345,9 +369,9 @@
   <div class="container" style="text-align: center;">
     <h2 class="short-lines">Histoire</h2>
     <p>Les futurs mariés se sont rencontrés le 13 Novembre 2022 sur le Dancefloor à Paris.</p>
-	<img src="image_adil_hanalei.jpg" alt="Photo du mariage" class="img-histoire">
+	<img src="image_adil_hanalei.jpg" alt="Photo des fiancés" class="img-histoire">
     <p>Trois ans plus tard, ils se fiancent en Grèce, sur l'île de Zakynthos.</p>
-    <img src="https://wallpapercave.com/wp/wp3799494.jpg" alt="Photo des fiancés" class="img-histoire">
+    <img src="https://wallpapercave.com/wp/wp3799494.jpg" alt="Photo de Zakynthos" class="img-histoire">
     <p style="font-style: italic;">On a hâte de célébrer notre mariage avec vous !</p>
   </div>
 </section>
@@ -380,7 +404,7 @@
 		<p><span class="note">📍 Hôtel de Ville - Larressingle</span></p>
         <p><strong>15h30 - 15h45 :</strong> Arrivée à la mairie</p>
 		<p><strong>16h : </strong>Cérémonie Civile</p>
-		<p><strong>17h : </strong>Convoi vers Moncrabeau (20 min)</p>
+		<p><strong>17h : </strong>Convoi vers Moncrabeau</p>
 		<div style="text-align: center; margin: 15px 0;">
   		  <svg width="80" height="80" viewBox="0 0 120 150" fill="none" xmlns="http://www.w3.org/2000/svg">
     		<path 
