@@ -289,10 +289,12 @@
 
         /* Correction du conteneur pour forcer le scroll sur iOS */
         #musicList {
-            max-height: 400px; /* Réduit un peu pour que la suite de la page reste visible */
+            max-height: 385px; /* Réduit un peu pour que la suite de la page reste visible */
             overflow-y: scroll; /* Forcer le scroll au lieu de 'auto' */
             -webkit-overflow-scrolling: touch; /* Défilement fluide sur iPhone */
             padding-right: 5px; /* Espace pour ne pas coller à la barre */
+			border: 1px solid rgba(0,0,0,0.05); /* Un petit cadre léger aide à délimiter la zone */
+            border-radius: 8px;
         }
 
         #musicList::-webkit-scrollbar-thumb:hover {
