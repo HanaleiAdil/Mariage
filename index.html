@@ -268,37 +268,36 @@
             font-weight: bold;
         }
 		
-        /* Barre de défilement pour iPhone/Chrome/Safari */
+		/* Barre de défilement Chrome, Edge, Safari */
+
         #musicList::-webkit-scrollbar {
-            -webkit-appearance: none; 
-            width: 6px; /* On la fait un peu plus fine pour l'élégance */
-            display: block;
+          -webkit-appearance: none; /* Annule l'apparence système */
+          width: 10px;
+          display: block;
         }
 
         #musicList::-webkit-scrollbar-track {
-           background: rgba(0, 0, 0, 0.05); /* Un fond très léger pour simuler une gouttière */
-            border-radius: 10px;
+          background: var(--card); /* Fond assorti à ta carte ivoire */
+          border-radius: 10px;
         }
 
         #musicList::-webkit-scrollbar-thumb {
-            background: var(--card-input); /* Votre couleur verte */
-            border-radius: 10px;
-            /* L'astuce pour iOS : forcer une bordure pour la rendre visible */
-            border: 1px solid var(--card-light); 
-        }
-
-        /* Correction du conteneur pour forcer le scroll sur iOS */
-        #musicList {
-            max-height: 415px; /* Réduit un peu pour que la suite de la page reste visible */
-            overflow-y: scroll; /* Forcer le scroll au lieu de 'auto' */
-            -webkit-overflow-scrolling: touch; /* Défilement fluide sur iPhone */
-            padding-right: 5px; /* Espace pour ne pas coller à la barre */
-			border: 1px solid rgba(0,0,0,0.05); /* Un petit cadre léger aide à délimiter la zone */
-            border-radius: 8px;
+          background: var(--card-input); /* Couleur Terracotta pour être bien visible */
+          border-radius: 10px;
+          border: 2px solid var(--card); /* Crée un petit effet de marge */
         }
 
         #musicList::-webkit-scrollbar-thumb:hover {
           background: var(--primary-dark); /* Plus foncé au survol */
+        }
+
+        /* Barre de défilement Firefox */
+        #musicList {
+          max-height: 425px;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: thin;
+          scrollbar-color: var(--card-input) var(--card);
         }
 
         /* Garde ton style pour le texte des musiques */
